@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <IsPackable>true</IsPackable>
+    <PackageId>Win32ThemeStudio.Themes</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>MrIvo</Authors>
+    <Company>MrIvo</Company>
+    <Title>Win32ThemeStudio Themes</Title>
+    <Description>Reusable Win32-style WPF theme library with runtime palette switching, metadata-based theme discovery, and import-safe bootstrap APIs.</Description>
+    <PackageTags>wpf;win32;themes;xaml;desktop;ui;resource-dictionary</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Link="README.md" />
+  </ItemGroup>
+
+</Project>

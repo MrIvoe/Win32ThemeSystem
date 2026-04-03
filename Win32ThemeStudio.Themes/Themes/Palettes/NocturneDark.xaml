@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Nocturne Dark</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FF0D1117" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E61A2230" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FF1C2735" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CC101924" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#661A2230" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FFE9F1FF" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF9BB1CC" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF4CC9F0" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF37B8E0" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF2D9ABA" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FF2E3D52" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FF121B27" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FF111A26" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FF1F2D40" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFFF6B6B" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF52B788" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#66000000" />
+</ResourceDictionary>
+
+
+

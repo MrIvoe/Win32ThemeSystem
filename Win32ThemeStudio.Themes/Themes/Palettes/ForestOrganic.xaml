@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Forest Organic</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFEAF1E8" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E6F5FAF3" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFDEE9D9" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCE4EFE1" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#66F7FFF4" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF1E3425" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF48654F" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF4C956C" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF3E845C" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF2E6645" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFA9C6AD" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFF5FCEF" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFEBF6E8" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFD4E8D0" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFC5533F" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF2C7A4C" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#2B000000" />
+</ResourceDictionary>
+
+
+

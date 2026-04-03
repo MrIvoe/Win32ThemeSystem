@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Win32ThemeStudio.Themes</id>
+    <version>0.1.0</version>
+    <title>Win32ThemeStudio Themes</title>
+    <authors>MrIvo</authors>
+    <readme>README.md</readme>
+    <description>Reusable Win32-style WPF theme library with runtime palette switching, metadata-based theme discovery, and import-safe bootstrap APIs.</description>
+    <tags>wpf win32 themes xaml desktop ui resource-dictionary</tags>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\MrIvo\Win32ThemeStudio\Win32ThemeStudio.Themes\bin\Release\net8.0-windows\Win32ThemeStudio.Themes.dll" target="lib\net8.0-windows7.0\Win32ThemeStudio.Themes.dll" />
+    <file src="C:\Users\MrIvo\Win32ThemeStudio\README.md" target="\README.md" />
+  </files>
+</package>

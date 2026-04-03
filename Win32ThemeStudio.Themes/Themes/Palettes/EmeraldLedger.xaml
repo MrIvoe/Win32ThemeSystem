@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Emerald Ledger</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFF4F8F4" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFEBF3ED" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCEFF5F0" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#88F7FBF8" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF1D2B24" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF556D61" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF2F9E73" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF268860" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF1D6B4C" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFBCD3C3" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFFBFEFB" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFF6FBF7" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFDDEDE2" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFC14D4D" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF21835D" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#2B000000" />
+</ResourceDictionary>

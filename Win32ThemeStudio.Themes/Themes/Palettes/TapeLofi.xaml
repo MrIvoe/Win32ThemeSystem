@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Tape Lo-Fi</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFEEE6DA" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E6FAF4EB" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFF2EAE0" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCEDE3D6" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#66FFF9EE" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF352C24" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF6B5A49" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF7C9A92" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF6A877F" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF4D6961" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFCDBCA5" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFFFF8EE" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFF9F0E4" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFE8D9C9" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFB76D57" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF5D8E6D" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#33000000" />
+</ResourceDictionary>
+
+
+

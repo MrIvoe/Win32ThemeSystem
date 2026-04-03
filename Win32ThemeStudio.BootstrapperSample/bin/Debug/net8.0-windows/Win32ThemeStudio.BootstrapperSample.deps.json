@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Win32ThemeStudio.BootstrapperSample/1.0.0": {
+        "dependencies": {
+          "Win32ThemeStudio.Themes": "0.1.0"
+        },
+        "runtime": {
+          "Win32ThemeStudio.BootstrapperSample.dll": {}
+        }
+      },
+      "Win32ThemeStudio.Themes/0.1.0": {
+        "runtime": {
+          "Win32ThemeStudio.Themes.dll": {
+            "assemblyVersion": "0.1.0.0",
+            "fileVersion": "0.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Win32ThemeStudio.BootstrapperSample/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Win32ThemeStudio.Themes/0.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

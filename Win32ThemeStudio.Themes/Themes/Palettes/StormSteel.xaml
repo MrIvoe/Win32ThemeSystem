@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Storm Steel</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFEFF3F6" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E6FBFCFD" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFE2E8EE" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCD8E1E8" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#88F6FAFC" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF202C35" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF5A6B78" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF4E7A99" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF426884" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF314C61" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFBAC7D1" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFF9FBFC" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFF1F5F8" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFDCE5EB" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFBF5345" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF3E8A72" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#28000000" />
+</ResourceDictionary>

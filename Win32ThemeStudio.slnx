@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Win32ThemeStudio.BootstrapperSample/Win32ThemeStudio.BootstrapperSample.csproj" />
+  <Project Path="Win32ThemeStudio.Demo/Win32ThemeStudio.Demo.csproj" />
+  <Project Path="Win32ThemeStudio.Themes/Win32ThemeStudio.Themes.csproj" />
+</Solution>

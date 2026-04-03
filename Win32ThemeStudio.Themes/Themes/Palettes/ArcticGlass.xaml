@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Theme.IsPalette">True</sys:String>
+    <sys:String x:Key="Theme.DisplayName">Arctic Glass</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFF2F8FC" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFE9F3F9" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCEAF4FB" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#88F8FCFF" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF17303E" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF537181" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF3A9CCF" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF258BBC" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF1A7097" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFB7D3E1" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFFAFDFE" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFF5FAFD" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFDCECF7" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFBF4B43" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF2E8A70" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#26000000" />
+</ResourceDictionary>
