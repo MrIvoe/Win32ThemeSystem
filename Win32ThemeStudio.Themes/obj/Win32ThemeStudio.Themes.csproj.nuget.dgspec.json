@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {}
+    "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {
+    "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {
       "version": "0.1.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj",
+        "projectUniqueName": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj",
         "projectName": "Win32ThemeStudio.Themes",
-        "projectPath": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj",
+        "projectPath": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj",
         "packagesPath": "C:\\Users\\MrIvo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\obj\\",
+        "outputPath": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MrIvo\\AppData\\Roaming\\NuGet\\NuGet.Config"

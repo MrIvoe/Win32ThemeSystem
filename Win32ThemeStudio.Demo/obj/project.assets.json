@@ -35,11 +35,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Demo\\Win32ThemeStudio.Demo.csproj",
+      "projectUniqueName": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Demo\\Win32ThemeStudio.Demo.csproj",
       "projectName": "Win32ThemeStudio.Demo",
-      "projectPath": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Demo\\Win32ThemeStudio.Demo.csproj",
+      "projectPath": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Demo\\Win32ThemeStudio.Demo.csproj",
       "packagesPath": "C:\\Users\\MrIvo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Demo\\obj\\",
+      "outputPath": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Demo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MrIvo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -54,8 +54,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {
-              "projectPath": "C:\\Users\\MrIvo\\Win32ThemeStudio\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj"
+            "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj": {
+              "projectPath": "C:\\Users\\MrIvo\\Github\\Win32ThemeSystem\\Win32ThemeStudio.Themes\\Win32ThemeStudio.Themes.csproj"
             }
           }
         }
