@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Base Brush Palette - these are overridden by theme palettes -->
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#F5F5F5" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#EEEEEE" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#F9F9F9" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#80FFFFFF" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#1F1F1F" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#808080" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#0078D4" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#106EBE" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#004578" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#CCCCCC" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#2F2F2F" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#F5F5F5" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#E1E1E1" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#D32F2F" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#388E3C" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#30000000" />
+
+</ResourceDictionary>
