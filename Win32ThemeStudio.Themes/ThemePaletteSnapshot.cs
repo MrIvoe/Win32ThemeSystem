@@ -7,27 +7,7 @@ namespace Win32ThemeStudio.Themes;
 
 public sealed class ThemePaletteSnapshot
 {
-    public static ReadOnlyCollection<string> RequiredBrushKeys { get; } =
-        Array.AsReadOnly(
-        [
-            "Brush.Background",
-            "Brush.Surface",
-            "Brush.SurfaceAlt",
-            "Brush.WindowGlass",
-            "Brush.TransparentLayer",
-            "Brush.TextPrimary",
-            "Brush.TextSecondary",
-            "Brush.Accent",
-            "Brush.AccentHover",
-            "Brush.AccentPressed",
-            "Brush.Border",
-            "Brush.TooltipBackground",
-            "Brush.MenuBackground",
-            "Brush.MenuHover",
-            "Brush.Danger",
-            "Brush.Success",
-            "Brush.Shadow"
-        ]);
+    public static ReadOnlyCollection<string> RequiredBrushKeys { get; } = ThemePaletteKeys.RequiredBrushKeys;
 
     public ThemePaletteSnapshot(IEnumerable<KeyValuePair<string, string>> paletteValues)
     {
@@ -82,17 +62,12 @@ public sealed class ThemePaletteSnapshot
         var brushValues = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         foreach (DictionaryEntry entry in resourceDictionary)
         {
-            if (entry.Key is not string resourceKey || !resourceKey.StartsWith("Brush.", StringComparison.Ordinal))
-            {
-                continue;
-            }
+            CollectBrush(entry, brushValues);
+        }
 
-            if (entry.Value is not SolidColorBrush brush)
-            {
-                continue;
-            }
-
-            brushValues[resourceKey] = brush.Color.ToString();
+        foreach (var mergedDictionary in resourceDictionary.MergedDictionaries)
+        {
+            CollectBrushes(mergedDictionary, brushValues);
         }
 
         return new ThemePaletteSnapshot(brushValues);
@@ -123,5 +98,33 @@ public sealed class ThemePaletteSnapshot
         }
 
         return color;
+    }
+
+    private static void CollectBrushes(ResourceDictionary resourceDictionary, Dictionary<string, string> brushValues)
+    {
+        foreach (DictionaryEntry entry in resourceDictionary)
+        {
+            CollectBrush(entry, brushValues);
+        }
+
+        foreach (var mergedDictionary in resourceDictionary.MergedDictionaries)
+        {
+            CollectBrushes(mergedDictionary, brushValues);
+        }
+    }
+
+    private static void CollectBrush(DictionaryEntry entry, Dictionary<string, string> brushValues)
+    {
+        if (entry.Key is not string resourceKey || !ThemePaletteKeys.IsBrushKey(resourceKey))
+        {
+            return;
+        }
+
+        if (entry.Value is not SolidColorBrush brush)
+        {
+            return;
+        }
+
+        brushValues[resourceKey] = brush.Color.ToString();
     }
 }

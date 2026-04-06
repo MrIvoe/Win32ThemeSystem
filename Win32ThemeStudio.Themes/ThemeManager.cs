@@ -6,20 +6,40 @@ public static class ThemeManager
 {
     public static IReadOnlyDictionary<string, string> AvailableThemes => ThemeCatalog.ThemeUris;
 
+    public static IReadOnlyDictionary<string, string> AvailableThemesById => ThemeCatalog.ThemeUrisById;
+
+    public static IReadOnlyList<ThemeDescriptor> AvailableThemeDescriptors => ThemeCatalog.Themes;
+
     public static ResourceDictionary CreateBaseStylesDictionary()
     {
         return new ResourceDictionary
         {
-            Source = new Uri(ThemeCatalog.BaseStylesUri, UriKind.Absolute)
+            Source = ThemeResourceLocator.BaseResources
         };
     }
 
-    public static ResourceDictionary CreateThemeDictionary(string themeName)
+    public static ResourceDictionary CreateThemeDictionary(string themeNameOrId)
     {
-        return new ResourceDictionary
+        return CreateThemeDictionary(ThemeCatalog.GetTheme(themeNameOrId));
+    }
+
+    public static ResourceDictionary CreateThemeDictionary(ThemeDescriptor theme)
+    {
+        ArgumentNullException.ThrowIfNull(theme);
+
+        var resourceDictionary = new ResourceDictionary
         {
-            Source = new Uri(ThemeCatalog.GetThemeUri(themeName), UriKind.Absolute)
+            [ThemePaletteKeys.ThemeIsPaletteKey] = "True",
+            [ThemePaletteKeys.ThemeDisplayNameKey] = theme.DisplayName,
+            [ThemePaletteKeys.ThemeIdKey] = theme.Id
         };
+
+        resourceDictionary.MergedDictionaries.Add(new ResourceDictionary
+        {
+            Source = new Uri(theme.ResourceUri, UriKind.Absolute)
+        });
+
+        return resourceDictionary;
     }
 
     public static ResourceDictionary CreateThemeDictionary(ThemePreset preset)
@@ -28,8 +48,11 @@ public static class ThemeManager
 
         var resourceDictionary = new ResourceDictionary
         {
-            ["Theme.IsPalette"] = "True",
-            ["Theme.DisplayName"] = preset.Theme.DisplayName
+            [ThemePaletteKeys.ThemeIsPaletteKey] = "True",
+            [ThemePaletteKeys.ThemeDisplayNameKey] = preset.Theme.DisplayName,
+            [ThemePaletteKeys.ThemeIdKey] = string.IsNullOrWhiteSpace(preset.Theme.Id)
+                ? ThemeIds.CreateStableId(preset.Theme.DisplayName)
+                : preset.Theme.Id
         };
 
         foreach (var (resourceKey, colorHex) in preset.ToPaletteSnapshot().BrushValues)
@@ -44,29 +67,40 @@ public static class ThemeManager
     {
         ArgumentNullException.ThrowIfNull(application);
 
-        var mergedDictionaries = application.Resources.MergedDictionaries;
-        if (mergedDictionaries.Any(static dictionary => UriEquals(dictionary.Source, ThemeCatalog.BaseStylesUri)))
-        {
-            return;
-        }
-
-        mergedDictionaries.Insert(0, CreateBaseStylesDictionary());
+        ThemeResourceLocator.EnsureBaseResources(application.Resources);
     }
 
-    public static void InitializeApplicationTheme(string themeName)
+    public static void InitializeApplicationTheme(string themeNameOrId)
     {
         var application = Application.Current
             ?? throw new InvalidOperationException("Application.Current is unavailable.");
 
-        InitializeApplicationTheme(application, themeName);
+        InitializeApplicationTheme(application, themeNameOrId);
     }
 
-    public static void InitializeApplicationTheme(Application application, string themeName)
+    public static void InitializeApplicationTheme(Application application, string themeNameOrId)
     {
         ArgumentNullException.ThrowIfNull(application);
 
         EnsureBaseStyles(application);
-        ApplyTheme(application, themeName);
+        ApplyTheme(application, themeNameOrId);
+    }
+
+    public static void InitializeApplicationTheme(ThemeDescriptor theme)
+    {
+        var application = Application.Current
+            ?? throw new InvalidOperationException("Application.Current is unavailable.");
+
+        InitializeApplicationTheme(application, theme);
+    }
+
+    public static void InitializeApplicationTheme(Application application, ThemeDescriptor theme)
+    {
+        ArgumentNullException.ThrowIfNull(application);
+        ArgumentNullException.ThrowIfNull(theme);
+
+        EnsureBaseStyles(application);
+        ApplyTheme(application, theme);
     }
 
     public static void InitializeApplicationTheme(ThemePreset preset)
@@ -85,29 +119,35 @@ public static class ThemeManager
         ApplyTheme(application, preset);
     }
 
-    public static void ApplyTheme(string themeName)
+    public static void ApplyTheme(string themeNameOrId)
     {
         var app = Application.Current
             ?? throw new InvalidOperationException("Application.Current is unavailable.");
 
-        ApplyTheme(app, themeName);
+        ApplyTheme(app, themeNameOrId);
     }
 
-    public static void ApplyTheme(Application application, string themeName)
+    public static void ApplyTheme(Application application, string themeNameOrId)
     {
         ArgumentNullException.ThrowIfNull(application);
 
-        var mergedDictionaries = application.Resources.MergedDictionaries;
+        ThemeResourceLocator.ReplaceThemeResources(application.Resources, CreateThemeDictionary(themeNameOrId));
+    }
 
-        for (var i = mergedDictionaries.Count - 1; i >= 0; i--)
-        {
-            if (mergedDictionaries[i].Contains("Theme.IsPalette"))
-            {
-                mergedDictionaries.RemoveAt(i);
-            }
-        }
+    public static void ApplyTheme(ThemeDescriptor theme)
+    {
+        var application = Application.Current
+            ?? throw new InvalidOperationException("Application.Current is unavailable.");
 
-        mergedDictionaries.Add(CreateThemeDictionary(themeName));
+        ApplyTheme(application, theme);
+    }
+
+    public static void ApplyTheme(Application application, ThemeDescriptor theme)
+    {
+        ArgumentNullException.ThrowIfNull(application);
+        ArgumentNullException.ThrowIfNull(theme);
+
+        ThemeResourceLocator.ReplaceThemeResources(application.Resources, CreateThemeDictionary(theme));
     }
 
     public static void ApplyTheme(ThemePreset preset)
@@ -123,22 +163,6 @@ public static class ThemeManager
         ArgumentNullException.ThrowIfNull(application);
         ArgumentNullException.ThrowIfNull(preset);
 
-        var mergedDictionaries = application.Resources.MergedDictionaries;
-
-        for (var i = mergedDictionaries.Count - 1; i >= 0; i--)
-        {
-            if (mergedDictionaries[i].Contains("Theme.IsPalette"))
-            {
-                mergedDictionaries.RemoveAt(i);
-            }
-        }
-
-        mergedDictionaries.Add(CreateThemeDictionary(preset));
-    }
-
-    private static bool UriEquals(Uri? source, string uri)
-    {
-        return source is not null &&
-               string.Equals(source.AbsoluteUri, uri, StringComparison.OrdinalIgnoreCase);
+        ThemeResourceLocator.ReplaceThemeResources(application.Resources, CreateThemeDictionary(preset));
     }
 }

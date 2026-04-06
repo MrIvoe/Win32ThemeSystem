@@ -87,11 +87,13 @@
 
                         <WrapPanel Margin="0,0,0,10">
                             <Button Content="Export Theme JSON"
+                                Style="{StaticResource AccentButton}"
                                     Click="ExportThemeJsonButton_Click" />
                             <Button Content="Apply JSON Preset"
+                                Style="{StaticResource SuccessButton}"
                                     Click="ApplyJsonPresetButton_Click" />
                             <Button Content="Load Sample Preset File"
-                                    Background="{DynamicResource Brush.SurfaceAlt}"
+                                Style="{StaticResource WarningButton}"
                                     Click="LoadSamplePresetButton_Click" />
                         </WrapPanel>
 
@@ -134,9 +136,9 @@
                                            Foreground="{DynamicResource Brush.TextSecondary}" />
 
                                 <WrapPanel>
-                                    <Button Content="Queue Task" />
-                                    <Button Content="Run Report" />
-                                    <Button Content="Alert" Background="{DynamicResource Brush.Danger}" />
+                                    <Button Content="Queue Task" Style="{StaticResource AccentButton}" />
+                                    <Button Content="Run Report" Style="{StaticResource SuccessButton}" />
+                                    <Button Content="Alert" Style="{StaticResource DangerButton}" />
                                 </WrapPanel>
 
                                 <TextBlock Text="Operator Note" FontWeight="SemiBold" Margin="0,10,0,4" />
@@ -153,7 +155,7 @@
                                 <TextBlock Text="Bootstrap And Validation" FontSize="16" FontWeight="SemiBold" />
                                 <TextBlock TextWrapping="Wrap"
                                            Margin="0,8,0,0"
-                                           Text="ThemeManager.InitializeApplicationTheme(this, &quot;Graphite Office&quot;);" />
+                                           Text="ThemeManager.InitializeApplicationTheme(this, ThemeCatalog.DefaultDarkTheme);" />
                                 <Separator Margin="0,10,0,10" />
                                 <TextBlock Text="Active Filter Result" FontWeight="SemiBold" />
                                 <TextBlock x:Name="FilterResultTextBlock"

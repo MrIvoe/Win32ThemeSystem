@@ -45,6 +45,7 @@
 
                     <TextBlock Text="Select Theme" FontWeight="SemiBold" />
                     <ComboBox x:Name="ThemeComboBox"
+                              DisplayMemberPath="DisplayName"
                               SelectionChanged="ThemeComboBox_SelectionChanged"
                               Margin="0,6,0,14"
                               ToolTip="Switches the active palette dictionary in real time." />
@@ -72,8 +73,12 @@
 
                     <TextBlock Text="Accent Actions" FontWeight="SemiBold" Margin="0,2,0,6" />
                     <WrapPanel>
-                        <Button Content="Primary" ToolTip="Standard primary action" />
+                        <Button Content="Primary"
+                            Style="{StaticResource AccentButton}"
+                            ToolTip="Standard primary action" />
                         <Button Content="Secondary" Background="{DynamicResource Brush.SurfaceAlt}" />
+                        <Button Content="Warn"
+                            Style="{StaticResource WarningButton}" />
                     </WrapPanel>
 
                     <TextBlock Text="Inputs" FontWeight="SemiBold" Margin="0,10,0,4" />
@@ -114,9 +119,9 @@
                                            Margin="0,4,0,8" />
 
                                 <WrapPanel>
-                                    <Button Content="Save Theme" />
-                                    <Button Content="Publish" />
-                                    <Button Content="Delete" Background="{DynamicResource Brush.Danger}" />
+                                    <Button Content="Save Theme" Style="{StaticResource AccentButton}" />
+                                    <Button Content="Publish" Style="{StaticResource SuccessButton}" />
+                                    <Button Content="Delete" Style="{StaticResource DangerButton}" />
                                 </WrapPanel>
 
                                 <TextBlock Text="Tooltip demo"

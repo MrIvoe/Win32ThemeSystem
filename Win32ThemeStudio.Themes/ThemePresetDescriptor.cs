@@ -2,6 +2,8 @@ namespace Win32ThemeStudio.Themes;
 
 public sealed class ThemePresetDescriptor
 {
+    public string Id { get; init; } = string.Empty;
+
     public string DisplayName { get; init; } = string.Empty;
 
     public ThemeAppearance Appearance { get; init; } = ThemeAppearance.Light;
@@ -22,6 +24,7 @@ public sealed class ThemePresetDescriptor
 
         return new ThemePresetDescriptor
         {
+            Id = descriptor.Id,
             DisplayName = descriptor.DisplayName,
             Appearance = descriptor.Appearance,
             Category = descriptor.Category,
@@ -34,11 +37,13 @@ public sealed class ThemePresetDescriptor
 
     public ThemeDescriptor ToThemeDescriptor()
     {
+        var themeId = string.IsNullOrWhiteSpace(Id) ? ThemeIds.CreateStableId(DisplayName) : Id;
         var resourceUri = string.IsNullOrWhiteSpace(SourceThemeUri)
-            ? $"theme-preset://custom/{Uri.EscapeDataString(DisplayName)}"
+            ? $"theme-preset://custom/{Uri.EscapeDataString(themeId)}"
             : SourceThemeUri;
 
         return new ThemeDescriptor(
+            themeId,
             DisplayName,
             resourceUri,
             Appearance,

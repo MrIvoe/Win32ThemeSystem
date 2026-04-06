@@ -10,7 +10,7 @@ public partial class App : Application
 {
 	protected override void OnStartup(StartupEventArgs e)
 	{
-		ThemeManager.InitializeApplicationTheme(this, "Aurora Light");
+		ThemeManager.InitializeApplicationTheme(this, ThemeCatalog.DefaultLightTheme);
 		base.OnStartup(e);
 	}
 }

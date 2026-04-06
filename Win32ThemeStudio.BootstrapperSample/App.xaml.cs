@@ -7,7 +7,7 @@ public partial class App : Application
 {
     protected override void OnStartup(StartupEventArgs e)
     {
-        ThemeManager.InitializeApplicationTheme(this, "Graphite Office");
+        ThemeManager.InitializeApplicationTheme(this, ThemeCatalog.DefaultDarkTheme);
         base.OnStartup(e);
     }
 }

@@ -12,7 +12,29 @@ public sealed class ThemeDescriptor
         string accentFamily,
         string description,
         IEnumerable<string> tags)
+        : this(
+            ThemeIds.CreateStableId(displayName),
+            displayName,
+            resourceUri,
+            appearance,
+            category,
+            accentFamily,
+            description,
+            tags)
     {
+    }
+
+    public ThemeDescriptor(
+        string id,
+        string displayName,
+        string resourceUri,
+        ThemeAppearance appearance,
+        string category,
+        string accentFamily,
+        string description,
+        IEnumerable<string> tags)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(id);
         ArgumentException.ThrowIfNullOrWhiteSpace(displayName);
         ArgumentException.ThrowIfNullOrWhiteSpace(resourceUri);
         ArgumentException.ThrowIfNullOrWhiteSpace(category);
@@ -20,6 +42,7 @@ public sealed class ThemeDescriptor
         ArgumentException.ThrowIfNullOrWhiteSpace(description);
         ArgumentNullException.ThrowIfNull(tags);
 
+        Id = ThemeIds.CreateStableId(id);
         DisplayName = displayName;
         ResourceUri = resourceUri;
         Appearance = appearance;
@@ -31,6 +54,8 @@ public sealed class ThemeDescriptor
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToArray());
     }
+
+    public string Id { get; }
 
     public string DisplayName { get; }
 

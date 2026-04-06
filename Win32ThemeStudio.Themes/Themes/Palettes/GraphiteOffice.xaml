@@ -3,21 +3,34 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <sys:String x:Key="Theme.IsPalette">True</sys:String>
     <sys:String x:Key="Theme.DisplayName">Graphite Office</sys:String>
-    <SolidColorBrush x:Key="Brush.Background" Color="#FF13171C" />
-    <SolidColorBrush x:Key="Brush.Surface" Color="#E6202630" />
-    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FF1C232D" />
-    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CC171D26" />
-    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#66202630" />
-    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FFF0F3F8" />
-    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FFA7B0BC" />
-    <SolidColorBrush x:Key="Brush.Accent" Color="#FF5A8DEE" />
-    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF4A7DDD" />
-    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF3867B5" />
-    <SolidColorBrush x:Key="Brush.Border" Color="#FF313A46" />
-    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FF181E27" />
-    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FF161B22" />
-    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FF242D39" />
-    <SolidColorBrush x:Key="Brush.Danger" Color="#FFFF7A70" />
-    <SolidColorBrush x:Key="Brush.Success" Color="#FF59B88C" />
-    <SolidColorBrush x:Key="Brush.Shadow" Color="#66000000" />
+    <sys:String x:Key="Theme.Id">graphite-office</sys:String>
+    <SolidColorBrush x:Key="Brush.Background" Color="#FFEEF1F4" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="Brush.SurfaceAlt" Color="#FFF8FAFC" />
+    <SolidColorBrush x:Key="Brush.WindowGlass" Color="#CCEEF1F4" />
+    <SolidColorBrush x:Key="Brush.TransparentLayer" Color="#7AF8FAFC" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#FF1F2730" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#FF64717D" />
+    <SolidColorBrush x:Key="Brush.TextDisabled" Color="#FF96A0A9" />
+    <SolidColorBrush x:Key="Brush.Accent" Color="#FF4F6477" />
+    <SolidColorBrush x:Key="Brush.AccentSecondary" Color="#FF73879A" />
+    <SolidColorBrush x:Key="Brush.AccentTertiary" Color="#FFA1B0BC" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#FF617789" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#FF415465" />
+    <SolidColorBrush x:Key="Brush.AccentForeground" Color="#FFF3F6F8" />
+    <SolidColorBrush x:Key="Brush.SelectionFill" Color="#4073879A" />
+    <SolidColorBrush x:Key="Brush.FocusStroke" Color="#FF73879A" />
+    <SolidColorBrush x:Key="Brush.Border" Color="#FFD7DEE5" />
+    <SolidColorBrush x:Key="Brush.ScrollbarThumb" Color="#FFB7C3CE" />
+    <SolidColorBrush x:Key="Brush.TooltipBackground" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="Brush.MenuBackground" Color="#FFF8FAFC" />
+    <SolidColorBrush x:Key="Brush.MenuHover" Color="#FFE7EDF2" />
+    <SolidColorBrush x:Key="Brush.DisabledSurface" Color="#FFE9EDF1" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FFB96E6A" />
+    <SolidColorBrush x:Key="Brush.DangerForeground" Color="#FFFBFAFA" />
+    <SolidColorBrush x:Key="Brush.Warning" Color="#FFC59A59" />
+    <SolidColorBrush x:Key="Brush.WarningForeground" Color="#FF312821" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#FF5D8B74" />
+    <SolidColorBrush x:Key="Brush.SuccessForeground" Color="#FFF3F7F5" />
+    <SolidColorBrush x:Key="Brush.Shadow" Color="#160E1A26" />
 </ResourceDictionary>

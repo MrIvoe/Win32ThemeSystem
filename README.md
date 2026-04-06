@@ -44,7 +44,7 @@ A reusable WPF theme repository for Windows apps, with 20 ready-to-use palettes,
 
 1. Add a reference to `Win32ThemeStudio.Themes`.
 2. Initialize the application theme once during startup.
-3. Switch palettes at runtime with `ThemeManager.ApplyTheme(themeName)`.
+3. Switch palettes at runtime with a stable theme id, a `ThemeDescriptor`, or a preset.
 
 ### Recommended App Startup
 
@@ -56,10 +56,17 @@ public partial class App : Application
 {
 	protected override void OnStartup(StartupEventArgs e)
 	{
-		ThemeManager.InitializeApplicationTheme(this, "Aurora Light");
+		ThemeManager.InitializeApplicationTheme(this, ThemeCatalog.DefaultLightTheme);
 		base.OnStartup(e);
 	}
 }
+```
+
+For direct resource-dictionary control, the library also exposes a package-style locator similar to mature WPF theme toolkits:
+
+```csharp
+ThemeResourceLocator.EnsureBaseResources(Application.Current.Resources);
+ThemeResourceLocator.SetTheme(Application.Current.Resources, ThemeCatalog.DefaultDarkThemeId);
 ```
 
 ### Theme Discovery And Filtering
@@ -72,12 +79,13 @@ var retroThemes = ThemeCatalog.GetThemesByCategory(ThemeCategories.Retro);
 var terminalThemes = ThemeCatalog.GetThemesByCategory(ThemeCategories.Terminal);
 var amberThemes = ThemeCatalog.GetThemesByAccentFamily(ThemeAccentFamilies.Amber);
 
-ThemeDescriptor activeTheme = ThemeCatalog.GetTheme("Graphite Office");
+ThemeDescriptor activeTheme = ThemeCatalog.GetTheme("graphite-office");
 string description = activeTheme.Description;
 ```
 
 Each `ThemeDescriptor` includes:
 
+- `Id`
 - `DisplayName`
 - `Appearance`
 - `Category`
@@ -91,7 +99,7 @@ Each `ThemeDescriptor` includes:
 The library can export a built-in theme to a JSON preset, or import a custom preset shipped outside the assembly.
 
 ```csharp
-ThemePreset preset = ThemePresetSerializer.ExportTheme("Graphite Office");
+ThemePreset preset = ThemePresetSerializer.ExportTheme("graphite-office");
 string json = ThemePresetSerializer.Serialize(preset);
 
 ThemePreset importedPreset = ThemePresetSerializer.Deserialize(json);
@@ -119,7 +127,7 @@ The bootstrapper sample includes a shipped file preset in [Win32ThemeStudio.Boot
 You can validate either built-in themes or imported presets before exposing them to users:
 
 ```csharp
-IReadOnlyList<ThemeContrastIssue> builtInIssues = ThemeContrastValidator.ValidateTheme("Amber Terminal");
+IReadOnlyList<ThemeContrastIssue> builtInIssues = ThemeContrastValidator.ValidateTheme("amber-terminal");
 IReadOnlyList<ThemeContrastIssue> presetIssues = ThemeContrastValidator.ValidatePreset(importedPreset);
 ```
 
@@ -135,11 +143,11 @@ The validator checks key foreground/background pairs used by the included styles
 If you need explicit control over merged dictionaries in another program, use the published URIs/API instead of hardcoding file paths:
 
 ```csharp
-application.Resources.MergedDictionaries.Insert(0, ThemeManager.CreateBaseStylesDictionary());
-application.Resources.MergedDictionaries.Add(ThemeManager.CreateThemeDictionary("Storm Steel"));
+ThemeResourceLocator.EnsureBaseResources(application.Resources);
+ThemeResourceLocator.SetTheme(application.Resources, "storm-steel");
 ```
 
-The base styles URI is exposed as `ThemeCatalog.BaseStylesUri`, and palette URIs are available through `ThemeCatalog.GetThemeUri(themeName)`.
+The base styles URI is exposed as `ThemeCatalog.BaseStylesUri`, stable default scheme URIs are exposed as `ThemeCatalog.DefaultLightThemeUri` and `ThemeCatalog.DefaultDarkThemeUri`, and any palette URI is available through `ThemeCatalog.GetThemeUri(themeNameOrId)`.
 
 ## Packaging
 

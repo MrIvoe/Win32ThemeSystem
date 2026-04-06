@@ -10,12 +10,18 @@ namespace Win32ThemeStudio.Demo;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private readonly IReadOnlyList<ThemeDescriptor> availableThemes;
+
     public MainWindow()
     {
         InitializeComponent();
 
-        ThemeComboBox.ItemsSource = ThemeManager.AvailableThemes.Keys;
-        ThemeComboBox.SelectedItem = "Aurora Light";
+        availableThemes = ThemeManager.AvailableThemeDescriptors
+            .OrderBy(static theme => theme.DisplayName, StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+        ThemeComboBox.ItemsSource = availableThemes;
+        ThemeComboBox.SelectedItem = ThemeCatalog.DefaultLightTheme;
 
         Opacity = OpacitySlider.Value;
         OpacityLabel.Text = $"{(int)(Opacity * 100)}%";
@@ -23,7 +29,7 @@ public partial class MainWindow : Window
 
     private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (ThemeComboBox.SelectedItem is not string selectedTheme)
+        if (ThemeComboBox.SelectedItem is not ThemeDescriptor selectedTheme)
         {
             return;
         }
@@ -31,7 +37,7 @@ public partial class MainWindow : Window
         ThemeManager.ApplyTheme(selectedTheme);
         if (TransparentToggle.IsChecked != true)
         {
-            Background = (Brush)Application.Current.Resources["Brush.WindowGlass"];
+            Background = (Brush)Application.Current.Resources[ThemePaletteKeys.WindowGlass];
         }
     }
 
@@ -43,7 +49,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        Background = (Brush)Application.Current.Resources["Brush.WindowGlass"];
+        Background = (Brush)Application.Current.Resources[ThemePaletteKeys.WindowGlass];
     }
 
     private void OpacitySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

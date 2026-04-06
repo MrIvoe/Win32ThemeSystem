@@ -6,16 +6,18 @@ public static class ThemeContrastValidator
 {
     private static readonly ContrastRule[] Rules =
     [
-        new("Brush.TextPrimary", "Brush.Background", 4.5, "Primary text should remain readable on the window background."),
-        new("Brush.TextPrimary", "Brush.Surface", 4.5, "Primary text should remain readable on elevated surfaces."),
-        new("Brush.TextPrimary", "Brush.SurfaceAlt", 4.5, "Primary text should remain readable on alternate surfaces."),
-        new("Brush.TextPrimary", "Brush.TooltipBackground", 4.5, "Tooltip text should remain readable."),
-        new("Brush.TextPrimary", "Brush.MenuBackground", 4.5, "Menu text should remain readable."),
-        new("Brush.TextPrimary", "Brush.Accent", 4.5, "Buttons inherit Brush.TextPrimary, so accent surfaces need enough contrast."),
-        new("Brush.TextPrimary", "Brush.Danger", 4.5, "Danger actions should keep button labels legible."),
-        new("Brush.TextPrimary", "Brush.Success", 4.5, "Success actions should keep button labels legible."),
-        new("Brush.TextSecondary", "Brush.Background", 3.0, "Secondary text should remain comfortably legible against the background."),
-        new("Brush.TextSecondary", "Brush.Surface", 3.0, "Secondary text should remain comfortably legible on surfaces.")
+        new(ThemePaletteKeys.TextPrimary, ThemePaletteKeys.Background, 4.5, "Primary text should remain readable on the window background."),
+        new(ThemePaletteKeys.TextPrimary, ThemePaletteKeys.Surface, 4.5, "Primary text should remain readable on main surfaces."),
+        new(ThemePaletteKeys.TextPrimary, ThemePaletteKeys.SurfaceAlt, 4.5, "Primary text should remain readable on elevated surfaces."),
+        new(ThemePaletteKeys.TextPrimary, ThemePaletteKeys.TooltipBackground, 4.5, "Tooltip text should remain readable."),
+        new(ThemePaletteKeys.TextPrimary, ThemePaletteKeys.MenuBackground, 4.5, "Menu text should remain readable."),
+        new(ThemePaletteKeys.AccentForeground, ThemePaletteKeys.Accent, 4.5, "Accent buttons should keep labels legible."),
+        new(ThemePaletteKeys.WarningForeground, ThemePaletteKeys.Warning, 4.5, "Warning actions should keep labels legible."),
+        new(ThemePaletteKeys.DangerForeground, ThemePaletteKeys.Danger, 4.5, "Danger actions should keep labels legible."),
+        new(ThemePaletteKeys.SuccessForeground, ThemePaletteKeys.Success, 4.5, "Success actions should keep labels legible."),
+        new(ThemePaletteKeys.TextSecondary, ThemePaletteKeys.Background, 3.0, "Secondary text should remain comfortably legible against the background."),
+        new(ThemePaletteKeys.TextSecondary, ThemePaletteKeys.Surface, 3.0, "Secondary text should remain comfortably legible on surfaces."),
+        new(ThemePaletteKeys.TextDisabled, ThemePaletteKeys.DisabledSurface, 2.0, "Disabled text should stay readable without competing with active controls.")
     ];
 
     public static IReadOnlyList<ThemeContrastIssue> ValidateTheme(string themeName)

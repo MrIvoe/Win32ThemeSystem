@@ -16,7 +16,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         LoadFilters();
         PresetPathTextBlock.Text = $"Sample preset file: {samplePresetPath}";
-        ApplyFilters(selectThemeName: "Graphite Office");
+        ApplyFilters(selectThemeId: ThemeCatalog.DefaultDarkThemeId);
     }
 
     private void LoadFilters()
@@ -77,7 +77,7 @@ public partial class MainWindow : Window
         ApplyCatalogTheme(theme, ThemeComboBox.Items.Count);
     }
 
-    private void ApplyFilters(string? selectThemeName = null)
+    private void ApplyFilters(string? selectThemeId = null)
     {
         var themes = ThemeCatalog.Themes.AsEnumerable();
 
@@ -103,7 +103,7 @@ public partial class MainWindow : Window
         var filteredThemes = themes.OrderBy(static theme => theme.DisplayName, StringComparer.OrdinalIgnoreCase).ToArray();
         ThemeComboBox.ItemsSource = filteredThemes;
 
-        var selectedTheme = filteredThemes.FirstOrDefault(theme => string.Equals(theme.DisplayName, selectThemeName, StringComparison.OrdinalIgnoreCase))
+        var selectedTheme = filteredThemes.FirstOrDefault(theme => string.Equals(theme.Id, selectThemeId, StringComparison.OrdinalIgnoreCase))
             ?? filteredThemes.FirstOrDefault();
 
         suppressThemeSelectionChanged = true;
@@ -119,8 +119,8 @@ public partial class MainWindow : Window
 
     private void ApplyCatalogTheme(ThemeDescriptor theme, int filteredCount)
     {
-        ThemeManager.ApplyTheme(Application.Current, theme.DisplayName);
-        var preset = ThemePresetSerializer.ExportTheme(theme.DisplayName);
+        ThemeManager.ApplyTheme(Application.Current, theme);
+        var preset = ThemePresetSerializer.ExportTheme(theme.Id);
         UpdateThemeDetails(preset, filteredCount, "Built-in catalog theme");
     }
 
@@ -131,7 +131,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        var preset = ThemePresetSerializer.ExportTheme(theme.DisplayName);
+        var preset = ThemePresetSerializer.ExportTheme(theme.Id);
         PresetJsonTextBox.Text = ThemePresetSerializer.Serialize(preset);
         PresetSourceTextBlock.Text = $"Exported JSON for built-in theme: {theme.DisplayName}";
     }
