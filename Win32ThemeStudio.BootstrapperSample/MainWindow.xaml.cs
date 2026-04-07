@@ -1,6 +1,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Win32ThemeStudio.Themes;
 
 namespace Win32ThemeStudio.BootstrapperSample;
@@ -185,7 +186,24 @@ public partial class MainWindow : Window
         PresetJsonTextBox.Text = ThemePresetSerializer.Serialize(preset);
         PresetSourceTextBlock.Text = source;
         FilterResultTextBlock.Text = $"{filteredCount} theme(s) match the current filter. Active theme: {theme.DisplayName}.";
+        ApplyPresetBackground(preset);
         UpdateContrastWarnings(preset);
+    }
+
+    private void ApplyPresetBackground(ThemePreset preset)
+    {
+        if (preset.Background is null)
+        {
+            RootDockPanel.SetResourceReference(DockPanel.BackgroundProperty, ThemePaletteKeys.Background);
+            return;
+        }
+
+        var fallbackColor = preset.PaletteValues.TryGetValue(ThemePaletteKeys.Background, out var paletteBackground)
+            ? paletteBackground
+            : "#FF202124";
+
+        Brush brush = ThemePresetBackgroundBrushFactory.CreateBrush(preset.Background, fallbackColor);
+        RootDockPanel.Background = brush;
     }
 
     private void UpdateContrastWarnings(ThemePreset preset)

@@ -9,6 +9,7 @@
 - Added serializer round-trip tests covering optional background metadata and backward-compatible presets without background data.
 - Added runtime preset validation with structured diagnostics and bootstrapper-side import gating before theme activation.
 - Added canonical `ThemeManager` helper APIs for validated preset JSON/file import and one-step initialize-from-import flows.
+- Added `ThemePresetBackgroundBrushFactory` and bootstrapper runtime rendering for optional preset background metadata.
 
 ## Notes
 

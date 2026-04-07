@@ -121,6 +121,14 @@ ThemePreset importedFromJson = ThemeManager.InitializeApplicationThemeFromPreset
 ThemePreset importedFromFile = ThemeManager.InitializeApplicationThemeFromPresetFile(app, @"Presets\SignalNight.json");
 ```
 
+When presets include optional `background` metadata, consumers can render it directly:
+
+```csharp
+var fallbackColor = importedFromJson.PaletteValues[ThemePaletteKeys.Background];
+Brush backgroundBrush = ThemePresetBackgroundBrushFactory.CreateBrush(importedFromJson.Background!, fallbackColor);
+rootDockPanel.Background = backgroundBrush;
+```
+
 Each preset document contains:
 
 - `formatVersion`

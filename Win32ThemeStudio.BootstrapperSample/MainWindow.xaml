@@ -6,7 +6,7 @@
     Width="1280"
         MinHeight="640"
     MinWidth="1100">
-    <DockPanel Background="{DynamicResource Brush.Background}">
+    <DockPanel x:Name="RootDockPanel" Background="{DynamicResource Brush.Background}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Sample">
                 <MenuItem Header="Bootstrapper" />
