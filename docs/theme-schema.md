@@ -45,3 +45,9 @@ Validation goals:
 - required keys enforced
 - type validation for token values
 - actionable diagnostics for rejected themes
+
+Current runtime validation entrypoint:
+
+- `Win32ThemeStudio.Themes/ThemePresetValidator.cs`
+- `ThemePresetValidator.Validate(...)` returns structured issues
+- `ThemePresetValidator.EnsureValid(...)` throws a combined import-safe error message for blocking issues

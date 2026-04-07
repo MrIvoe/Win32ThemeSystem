@@ -141,6 +141,7 @@ public partial class MainWindow : Window
         try
         {
             var preset = ThemePresetSerializer.Deserialize(PresetJsonTextBox.Text);
+            ThemePresetValidator.EnsureValid(preset);
             suppressThemeSelectionChanged = true;
             ThemeComboBox.SelectedItem = null;
             suppressThemeSelectionChanged = false;
@@ -164,6 +165,7 @@ public partial class MainWindow : Window
             }
 
             var preset = ThemePresetSerializer.LoadFromFile(samplePresetPath);
+            ThemePresetValidator.EnsureValid(preset);
             PresetJsonTextBox.Text = ThemePresetSerializer.Serialize(preset);
             suppressThemeSelectionChanged = true;
             ThemeComboBox.SelectedItem = null;
