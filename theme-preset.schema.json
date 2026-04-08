@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/MrIvoe/Win32ThemeSystem/theme-preset.schema.json",
+  "$id": "https://github.com/MrIvoe/Themes/theme-preset.schema.json",
   "title": "Win32ThemeStudio Theme Preset",
   "type": "object",
   "required": [
