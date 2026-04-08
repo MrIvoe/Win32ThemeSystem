@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MrIvoe/Themes/schema/components.schema.json",
+  "title": "Universal Component Tokens",
+  "description": "Structural design tokens for reusable UI components. All values reference scale token keys (not raw values).",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/$defs/componentNode"
+  },
+  "$defs": {
+    "tokenRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$",
+      "description": "A dot-notation reference to a scale token such as space.md or radius.sm"
+    },
+    "scalarOrRef": {
+      "oneOf": [
+        { "$ref": "#/$defs/tokenRef" },
+        { "type": "number" },
+        { "type": "string" }
+      ]
+    },
+    "componentNode": {
+      "oneOf": [
+        { "$ref": "#/$defs/scalarOrRef" },
+        {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/componentNode"
+          }
+        }
+      ]
+    }
+  }
+}

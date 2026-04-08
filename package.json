@@ -1,11 +1,11 @@
 {
   "name": "@mrivoe/themes",
-  "version": "0.0.002",
+  "version": "0.0.003",
   "private": true,
   "description": "Universal single-source theme token system with multi-target exporters",
   "type": "commonjs",
   "scripts": {
-    "validate": "node src/validate-theme.js themes/midnight/theme.json themes/midnight/semantic.json",
+    "validate": "node src/validate-theme.js themes/midnight/theme.json themes/midnight/semantic.json themes/midnight/components.json themes/midnight/icons.json",
     "build": "node src/build-all.js",
     "build:midnight": "node src/build-all.js midnight"
   }

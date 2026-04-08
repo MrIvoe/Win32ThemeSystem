@@ -2,7 +2,7 @@
   "meta": {
     "id": "midnight",
     "name": "Midnight",
-    "version": "0.0.001",
+    "version": "0.0.003",
     "mode": "dark"
   },
   "tokens": {
@@ -39,7 +39,9 @@
       "focus": "#4DA3FF",
       "hover": "#1A2330",
       "active": "#243244",
-      "disabled": "#5C6673"
+      "disabled": "#5C6673",
+      "selected": "#1E3050",
+      "error": "#E74C3C"
     },
     "syntax": {
       "keyword": "#C792EA",
@@ -48,6 +50,115 @@
       "variable": "#EEFFFF",
       "type": "#FFCB6B",
       "comment": "#676E95"
+    },
+    "icon": {
+      "default": "#C7D0D9",
+      "interactive": "#4DA3FF",
+      "muted": "#8A97A6",
+      "inverse": "#F5F7FA",
+      "success": "#2ECC71",
+      "warning": "#F1C40F",
+      "danger": "#E74C3C",
+      "info": "#00C2FF"
+    }
+  },
+  "scale": {
+    "size": {
+      "icon": {
+        "xs": 12,
+        "sm": 14,
+        "md": 16,
+        "lg": 20,
+        "xl": 24
+      },
+      "control": {
+        "sm": 28,
+        "md": 36,
+        "lg": 44
+      }
+    },
+    "space": {
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "xxl": 40
+    },
+    "radius": {
+      "sm": 4,
+      "md": 6,
+      "lg": 10,
+      "xl": 14,
+      "pill": 999
+    },
+    "border": {
+      "thin": 1,
+      "medium": 2,
+      "thick": 3
+    },
+    "font": {
+      "family": {
+        "base": "Segoe UI, Inter, system-ui, sans-serif",
+        "mono": "Consolas, Cascadia Code, JetBrains Mono, monospace"
+      },
+      "size": {
+        "xs": 11,
+        "sm": 12,
+        "md": 13,
+        "lg": 14,
+        "xl": 16,
+        "xxl": 18,
+        "heading": 20
+      },
+      "weight": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeight": {
+        "tight": 1.2,
+        "normal": 1.45,
+        "relaxed": 1.65
+      }
+    },
+    "shadow": {
+      "sm": "0 1px 2px rgba(0,0,0,0.28)",
+      "md": "0 4px 12px rgba(0,0,0,0.32)",
+      "lg": "0 8px 24px rgba(0,0,0,0.40)",
+      "overlay": "0 12px 40px rgba(0,0,0,0.52)"
+    },
+    "motion": {
+      "duration": {
+        "instant": 50,
+        "fast": 100,
+        "normal": 180,
+        "slow": 280,
+        "enter": 220,
+        "exit": 150
+      },
+      "easing": {
+        "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "enter": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "exit": "cubic-bezier(0.4, 0.0, 1, 1)",
+        "sharp": "cubic-bezier(0.4, 0.0, 0.6, 1)"
+      }
+    },
+    "opacity": {
+      "disabled": 0.40,
+      "muted": 0.60,
+      "overlay": 0.72,
+      "full": 1.0
+    },
+    "layer": {
+      "base": 0,
+      "raised": 10,
+      "dropdown": 100,
+      "overlay": 200,
+      "modal": 300,
+      "toast": 400,
+      "tooltip": 500
     }
   }
 }

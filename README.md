@@ -4,7 +4,7 @@ Universal single-source design token system for cross-language theming.
 
 ## Version
 
-Current working baseline: 0.0.002
+Current working baseline: 0.0.003
 
 ## Package Visibility
 
@@ -25,15 +25,24 @@ Core rule: a theme defines what a color means, not where it is used.
 - schema/
   - theme.schema.json
   - semantic.schema.json
+  - components.schema.json
+  - icons.schema.json
 - themes/
   - midnight/theme.json
   - midnight/semantic.json
+  - midnight/components.json
+  - midnight/icons.json
 - adapters/
   - css/export-css.js
   - json/export-json.js
   - python/export-python.js
   - c/export-c.js
   - cpp/export-cpp.js
+  - java/export-java.js
+  - scss/export-scss.js
+  - tailwind/export-tailwind.js
+  - qt/export-qt.js
+  - tkinter/export-tkinter.js
 - src/
   - resolve-token-path.js
   - validate-theme.js
@@ -44,10 +53,17 @@ Core rule: a theme defines what a color means, not where it is used.
   - python/
   - c/
   - cpp/
+  - java/
+  - scss/
+  - tailwind/
+  - qt/
+  - tkinter/
 - docs/
   - token-system.md
   - adapter-guide.md
   - create-theme.md
+  - icon-system.md
+  - component-token-guide.md
 
 ## Canonical Token Paths
 
@@ -72,6 +88,22 @@ Use dot notation with semantic meaning:
 - syntax.keyword
 - syntax.string
 - syntax.comment
+- icon.default
+- icon.interactive
+- icon.muted
+- icon.warning
+- icon.danger
+- icon.info
+
+Non-color structural values live in `theme.scale.*`:
+
+- scale.size.icon.md
+- scale.space.md
+- scale.radius.md
+- scale.font.size.md
+- scale.border.thin
+- scale.motion.duration.normal
+- scale.layer.modal
 
 Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowBg.
 
@@ -80,7 +112,11 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 - meta.id, meta.name, meta.version, and meta.mode are required.
 - Required token groups: background, surface, text, accent, border, state, syntax.
 - Every token color must be a valid hex color (#RRGGBB or #RRGGBBAA).
+- Non-color scale values (size, space, radius, font, motion, …) live in `theme.scale` and are not hex-validated.
 - Semantic references must resolve to an existing token path.
+- Component token refs must resolve to an existing scale path.
+- Icon role semantic refs must resolve to an existing token in `tokens.icon.*`.
+- Icon role size refs must resolve to an existing key in `scale.size.icon.*`.
 
 ## Build And Export
 
@@ -101,14 +137,18 @@ Generated files are written to dist/ as:
 
 ## Export Compatibility Matrix
 
-- CSS exporter: implemented
-- JSON exporter: implemented
-- Python exporter: implemented
-- C exporter: implemented
-- C++ exporter: implemented
-- Java adapter: planned
-- Qt adapter: planned
-- Tkinter adapter: planned
+| Adapter | Status |
+|---|---|
+| CSS variables | implemented |
+| Flattened JSON | implemented |
+| Python dict module | implemented |
+| C header defines | implemented |
+| C++ constexpr header | implemented |
+| Java constants | implemented |
+| SCSS variables | implemented |
+| Tailwind config | implemented |
+| Qt stylesheet | implemented |
+| Tkinter palette | implemented |
 
 ## Integration Contract
 

@@ -23,10 +23,20 @@ public final class MidnightTheme {
     public static final String STATE_HOVER = "#1A2330";
     public static final String STATE_ACTIVE = "#243244";
     public static final String STATE_DISABLED = "#5C6673";
+    public static final String STATE_SELECTED = "#1E3050";
+    public static final String STATE_ERROR = "#E74C3C";
     public static final String SYNTAX_KEYWORD = "#C792EA";
     public static final String SYNTAX_STRING = "#C3E88D";
     public static final String SYNTAX_FUNCTION = "#82AAFF";
     public static final String SYNTAX_VARIABLE = "#EEFFFF";
     public static final String SYNTAX_TYPE = "#FFCB6B";
     public static final String SYNTAX_COMMENT = "#676E95";
+    public static final String ICON_DEFAULT = "#C7D0D9";
+    public static final String ICON_INTERACTIVE = "#4DA3FF";
+    public static final String ICON_MUTED = "#8A97A6";
+    public static final String ICON_INVERSE = "#F5F7FA";
+    public static final String ICON_SUCCESS = "#2ECC71";
+    public static final String ICON_WARNING = "#F1C40F";
+    public static final String ICON_DANGER = "#E74C3C";
+    public static final String ICON_INFO = "#00C2FF";
 }

@@ -35,8 +35,10 @@ function buildTheme(rootDir, themeId) {
   const themeDir = path.join(rootDir, "themes", themeId);
   const themePath = path.join(themeDir, "theme.json");
   const semanticPath = path.join(themeDir, "semantic.json");
+  const componentsPath = fs.existsSync(path.join(themeDir, "components.json")) ? path.join(themeDir, "components.json") : undefined;
+  const iconsPath = fs.existsSync(path.join(themeDir, "icons.json")) ? path.join(themeDir, "icons.json") : undefined;
 
-  const result = validateThemePair(themePath, semanticPath);
+  const result = validateThemePair(themePath, semanticPath, componentsPath, iconsPath);
   if (!result.valid) {
     throw new Error(`Validation failed for ${themeId}:\n${result.errors.map((e) => `- ${e}`).join("\n")}`);
   }

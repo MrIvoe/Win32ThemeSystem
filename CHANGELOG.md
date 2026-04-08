@@ -2,6 +2,19 @@
 
 ## 0.0.003
 
+- Upgraded midnight theme to full universal design token platform with non-color scale tokens (size, space, radius, border, font, shadow, motion, opacity, layer).
+- Added `tokens.icon` group with 8 semantic icon color roles.
+- Added `tokens.state.selected` and `tokens.state.error` to state token group.
+- Expanded semantic.json from 4 control groups to ~30: button variants (primary/secondary/danger/ghost), input, checkbox, radio, toggle, select, dropdown, tab, menu, tooltip, card, panel, modal, alert, badge, table, tree, scrollbar, editor, titlebar, sidebar, settings, tray, icon, plugin.
+- Added `themes/midnight/components.json` — structural component tokens with size/spacing/radius/font refs.
+- Added `themes/midnight/icons.json` — semantic icon role system with Lucide, Heroicons, Tabler pack mappings.
+- Added `schema/components.schema.json` and `schema/icons.schema.json`.
+- Updated `src/validate-theme.js` to validate components and icons files in addition to theme/semantic pair; accepts `[components.json] [icons.json]` as optional CLI args.
+- Updated `src/build-all.js` to auto-detect and validate components/icons when present.
+- Added `docs/icon-system.md` — full icon role authoring guide with pack compat table.
+- Added `docs/component-token-guide.md` — component structural token reference and usage guide.
+- Updated `package.json` version to `0.0.003`.
+- Added 10 total adapter outputs: CSS, JSON, Python, C, C++, Java, SCSS, Tailwind, Qt, Tkinter.
 - Published cross-repo theme contract documentation with canonical namespaces, compatibility versioning rules, fallback behavior, and consumer error-handling expectations.
 
 ## 0.0.002
