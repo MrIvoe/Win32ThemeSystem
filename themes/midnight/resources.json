@@ -14,28 +14,70 @@
       ]
     },
     "buttons": {
-      "defaultStyle": "primarySolid",
-      "styles": {
-        "primarySolid": {
-          "label": "Primary Solid",
-          "componentRef": "button.primary"
+      "defaultStyle": "compactPrimary",
+      "families": {
+        "compact": {
+          "defaultStyle": "compactPrimary",
+          "styles": [
+            "compactPrimary",
+            "compactSecondary"
+          ]
         },
-        "secondarySolid": {
-          "label": "Secondary Solid",
+        "soft": {
+          "defaultStyle": "softPrimary",
+          "styles": [
+            "softPrimary",
+            "softSecondary"
+          ]
+        },
+        "outlined": {
+          "defaultStyle": "outlinedPrimary",
+          "styles": [
+            "outlinedPrimary",
+            "outlinedDanger"
+          ]
+        },
+        "high-contrast": {
+          "defaultStyle": "highContrastPrimary",
+          "styles": [
+            "highContrastPrimary",
+            "highContrastDanger"
+          ]
+        }
+      },
+      "styles": {
+        "compactPrimary": {
+          "label": "Compact Primary",
+          "componentRef": "button.compactPrimary"
+        },
+        "compactSecondary": {
+          "label": "Compact Secondary",
           "componentRef": "button.secondary"
         },
-        "ghost": {
-          "label": "Ghost",
-          "componentRef": "button.ghost"
+        "softPrimary": {
+          "label": "Soft Primary",
+          "componentRef": "button.softPrimary"
         },
-        "danger": {
-          "label": "Danger",
+        "softSecondary": {
+          "label": "Soft Secondary",
+          "componentRef": "button.secondary"
+        },
+        "outlinedPrimary": {
+          "label": "Outlined Primary",
+          "componentRef": "button.outlinedPrimary"
+        },
+        "outlinedDanger": {
+          "label": "Outlined Danger",
           "componentRef": "button.danger"
         },
-        "heroAction": {
-          "label": "Hero Action",
-          "componentRef": "button.primary",
-          "iconPackOverride": "heroicons"
+        "highContrastPrimary": {
+          "label": "High Contrast Primary",
+          "componentRef": "button.highContrastPrimary"
+        },
+        "highContrastDanger": {
+          "label": "High Contrast Danger",
+          "componentRef": "button.danger",
+          "iconPackOverride": "bootstrap-icons"
         }
       }
     },

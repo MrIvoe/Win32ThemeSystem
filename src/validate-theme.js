@@ -305,6 +305,8 @@ function validateResources(resources, components, icons) {
   if (uiButtons && typeof uiButtons === "object") {
     assert(typeof uiButtons.defaultStyle === "string" && uiButtons.defaultStyle.length > 0,
       "resources.ui.buttons.defaultStyle must be a non-empty string", errors);
+    assert(uiButtons.families && typeof uiButtons.families === "object" && !Array.isArray(uiButtons.families),
+      "resources.ui.buttons.families must be an object", errors);
     assert(uiButtons.styles && typeof uiButtons.styles === "object" && !Array.isArray(uiButtons.styles),
       "resources.ui.buttons.styles must be an object", errors);
 
@@ -312,6 +314,36 @@ function validateResources(resources, components, icons) {
     if (typeof uiButtons.defaultStyle === "string" && styleNames.length > 0) {
       assert(styleNames.includes(uiButtons.defaultStyle),
         "resources.ui.buttons.defaultStyle must exist in resources.ui.buttons.styles", errors);
+    }
+
+    if (uiButtons.families && typeof uiButtons.families === "object" && !Array.isArray(uiButtons.families)) {
+      for (const [familyName, familyConfig] of Object.entries(uiButtons.families)) {
+        assert(familyConfig && typeof familyConfig === "object" && !Array.isArray(familyConfig),
+          `resources.ui.buttons.families.${familyName} must be an object`, errors);
+        if (!familyConfig || typeof familyConfig !== "object" || Array.isArray(familyConfig)) {
+          continue;
+        }
+
+        assert(typeof familyConfig.defaultStyle === "string" && familyConfig.defaultStyle.length > 0,
+          `resources.ui.buttons.families.${familyName}.defaultStyle must be a non-empty string`, errors);
+        if (typeof familyConfig.defaultStyle === "string" && styleNames.length > 0) {
+          assert(styleNames.includes(familyConfig.defaultStyle),
+            `resources.ui.buttons.families.${familyName}.defaultStyle must exist in resources.ui.buttons.styles`, errors);
+        }
+
+        assert(Array.isArray(familyConfig.styles) && familyConfig.styles.length > 0,
+          `resources.ui.buttons.families.${familyName}.styles must be a non-empty array`, errors);
+        if (Array.isArray(familyConfig.styles)) {
+          for (const styleKey of familyConfig.styles) {
+            assert(typeof styleKey === "string" && styleKey.length > 0,
+              `resources.ui.buttons.families.${familyName}.styles entries must be non-empty strings`, errors);
+            if (typeof styleKey === "string" && styleNames.length > 0) {
+              assert(styleNames.includes(styleKey),
+                `resources.ui.buttons.families.${familyName}.styles contains unknown style '${styleKey}'`, errors);
+            }
+          }
+        }
+      }
     }
 
     if (uiButtons.styles && typeof uiButtons.styles === "object") {
@@ -325,7 +357,7 @@ function validateResources(resources, components, icons) {
         assert(typeof styleConfig.componentRef === "string" && styleConfig.componentRef.length > 0,
           `resources.ui.buttons.styles.${styleName}.componentRef must be a non-empty string`, errors);
         if (typeof styleConfig.componentRef === "string") {
-          assert(/^button\.[a-z][a-z0-9_]*$/.test(styleConfig.componentRef),
+          assert(/^button\.[a-z][a-zA-Z0-9_]*$/.test(styleConfig.componentRef),
             `resources.ui.buttons.styles.${styleName}.componentRef must point to button.<variant>`, errors);
           if (components && typeof components === "object") {
             assert(hasPath(components, styleConfig.componentRef),

@@ -132,10 +132,16 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 
 - `ui.icons.defaultPack`: default icon pack for the theme
 - `ui.icons.availablePacks`: allowed icon packs users can pick
+- `ui.buttons.families`: style families users can switch between (`compact`, `soft`, `outlined`, `high-contrast`)
 - `ui.buttons.styles`: named button style presets mapped to `components.json` variants
 - `ui.controls`: optional named presets for other control groups (input/select/menu/etc)
 
 Build output includes `dist/json/<theme-id>.resources.json` so app/plugin hosts can load the same validated options at runtime.
+
+Runtime resolution helper:
+
+- `npm run resolve:ui` resolves defaults for `themes/midnight`
+- `npm run resolve:ui:sample` resolves explicit selection (`tabler` + `softPrimary`)
 
 ## Build And Export
 
