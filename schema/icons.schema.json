@@ -2,7 +2,90 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/MrIvoe/Themes/schema/icons.schema.json",
   "title": "Icon System Schema",
-  "description": "Semantic icon roles and optional icon pack compatibility mappings.",
+  "description": "Semantic icon system: color roles, named role assignments, and optional icon pack mappings.",
+  "type": "object",
+  "required": ["meta", "icon"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["themeId", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "themeId": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        }
+      }
+    },
+    "icon": {
+      "type": "object",
+      "required": ["size", "color", "roles"],
+      "additionalProperties": false,
+      "properties": {
+        "size": {
+          "type": "object",
+          "description": "Named icon sizes in pixels. Values must be positive numbers.",
+          "additionalProperties": { "type": "number", "minimum": 1 }
+        },
+        "style": {
+          "type": "object",
+          "description": "Optional visual style hints such as stroke width or corner style.",
+          "properties": {
+            "strokeWidth": { "type": "number", "minimum": 0 },
+            "corner": { "type": "string" }
+          },
+          "additionalProperties": { "oneOf": [{"type": "number"}, {"type": "string"}] }
+        },
+        "color": {
+          "type": "object",
+          "description": "Maps color role names to token paths in theme.tokens (e.g. text.secondary, accent.primary).",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$"
+          }
+        },
+        "roles": {
+          "type": "object",
+          "description": "Maps flat semantic role paths (e.g. action.add) to color role names defined in icon.color.",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "packs": {
+          "type": "object",
+          "description": "Optional icon pack compatibility adapters. Keys are pack identifiers.",
+          "additionalProperties": {
+            "$ref": "#/$defs/iconPack"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "iconPack": {
+      "type": "object",
+      "required": ["url", "license", "mapping"],
+      "properties": {
+        "url":     { "type": "string", "format": "uri" },
+        "license": { "type": "string", "minLength": 1 },
+        "status":  { "type": "string" },
+        "mapping": {
+          "type": "object",
+          "description": "Maps semantic role paths to pack-specific icon identifiers.",
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+
   "type": "object",
   "required": ["roles"],
   "properties": {

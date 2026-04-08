@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "material",
+      "name": "Material Design",
+      "type": "ui-system",
+      "url": "https://m3.material.io",
+      "license": "Apache-2.0",
+      "status": "reference_only",
+      "usage": "component state hierarchy and color role inspiration",
+      "notes": "Do not copy implementation code or Material-specific naming into core theme source. Use for reference patterns only."
+    },
+    {
+      "id": "fluent",
+      "name": "Fluent Design System",
+      "type": "ui-system",
+      "url": "https://fluent2.microsoft.design",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "Win32/desktop UI patterns, depth, and layering inspiration",
+      "notes": "Primary reference for Spaces desktop shell UI patterns. Do not embed Fluent-specific component names or tokens."
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap",
+      "type": "ui-library",
+      "url": "https://getbootstrap.com",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "component role and layout pattern inspiration",
+      "notes": "Use for reference patterns and naming comparisons only. Do not introduce Bootstrap class names or utility-first patterns."
+    },
+    {
+      "id": "tabler-ui",
+      "name": "Tabler UI",
+      "type": "ui-library",
+      "url": "https://tabler.io",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "dashboard and control component naming inspiration",
+      "notes": "Reference for admin/dashboard UI patterns. Unrelated to Tabler Icons despite shared branding."
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn/ui",
+      "type": "ui-library",
+      "url": "https://ui.shadcn.com",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "semantic component naming and state pattern inspiration",
+      "notes": "Component API patterns used as a reference model for semantic component token naming conventions."
+    },
+    {
+      "id": "radix",
+      "name": "Radix Primitives",
+      "type": "ui-library",
+      "url": "https://www.radix-ui.com",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "component behavior and accessibility state reference",
+      "notes": "Used as a reference for component state coverage (open/closed, checked/unchecked, selected, disabled, etc.)."
+    },
+    {
+      "id": "ant-design",
+      "name": "Ant Design",
+      "type": "ui-library",
+      "url": "https://ant.design",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "component token naming and design variable conventions",
+      "notes": "Ant Design v5 design token system used as a reference for component-level token granularity."
+    }
+  ]
+}

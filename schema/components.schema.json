@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/MrIvoe/Themes/schema/components.schema.json",
   "title": "Universal Component Tokens",
-  "description": "Structural design tokens for reusable UI components. All values reference scale token keys (not raw values).",
+  "description": "Design tokens for reusable UI components. Values may reference color tokens (theme.tokens.*) or scale tokens (theme.scale.*) by dot-notation path, or be raw numbers (pixel values).",
   "type": "object",
   "additionalProperties": {
     "$ref": "#/$defs/componentNode"

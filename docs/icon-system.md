@@ -1,6 +1,249 @@
 # Icon System
 
-The Themes icon system defines a semantic layer between visual icon packs and application code. Instead of hardcoding pack-specific icon identifiers, your application references semantic role names. The theme then maps roles to both the correct color token and the appropriate icon from whichever pack is configured.
+The icon system gives every icon in your UI a **semantic role** (e.g. `action.close`, `status.warning`) rather than a hard-coded color or pack-specific name. The theme then resolves that role to the correct color, and an optional pack mapping resolves it to the correct icon identifier for whichever icon pack you're using.
+
+## Architecture
+
+```
+icon role path              color role name     token path          rendered color
+──────────────────────────  ──────────────────  ──────────────────  ────────────────
+"action.delete"         →   "danger"        →   "accent.danger"  →  #E74C3C
+"status.warning"        →   "warning"       →   "accent.warning" →  #F1C40F
+"action.search"         →   "default"       →   "text.secondary" →  #C7D0D9
+```
+
+Each role path also has a **size** you can look up from `icon.size.*` in the icons file.
+
+## `icons.json` Structure
+
+```json
+{
+  "meta": {
+    "themeId": "midnight",
+    "version": "0.0.003"
+  },
+  "icon": {
+    "size": { "xs": 12, "sm": 14, "md": 16, "lg": 20, "xl": 24 },
+    "style": { "strokeWidth": 1.75, "corner": "soft" },
+    "color": {
+      "default":     "text.secondary",
+      "muted":       "text.muted",
+      "interactive": "accent.primary",
+      "danger":      "accent.danger",
+      "warning":     "accent.warning",
+      "success":     "accent.success",
+      "info":        "accent.info",
+      "inverse":     "text.inverse"
+    },
+    "roles": {
+      "action.add":      "interactive",
+      "action.delete":   "danger",
+      "status.warning":  "warning",
+      "nav.settings":    "default"
+    },
+    "packs": {
+      "lucide": {
+        "url": "https://lucide.dev",
+        "license": "ISC",
+        "status": "license_verification_pending",
+        "mapping": {
+          "action.add":    "plus",
+          "action.delete": "trash-2"
+        }
+      }
+    }
+  }
+}
+```
+
+### `icon.size`
+
+Named pixel sizes for icons. Use these keys when sizing icons in your UI rather than hardcoding numbers.
+
+| Key | px | Use case |
+|---|---|---|
+| `xs` | 12 | Dense UI, badge decorations |
+| `sm` | 14 | Compact lists, captions |
+| `md` | 16 | Standard inline icons |
+| `lg` | 20 | Card headers, action buttons |
+| `xl` | 24 | Hero sections, empty states |
+
+### `icon.style`
+
+Optional visual style hints. These are advisory and not enforced by the validator.
+
+| Key | Value | Meaning |
+|---|---|---|
+| `strokeWidth` | `1.75` | Recommended stroke width for outline icons |
+| `corner` | `"soft"` | Corner style hint: `soft`, `round`, or `sharp` |
+
+### `icon.color`
+
+Maps **color role names** to token paths in `theme.tokens`. This is the bridge between the semantic icon role system and the raw color token layer.
+
+```json
+"color": {
+  "default":     "text.secondary",
+  "interactive": "accent.primary",
+  "danger":      "accent.danger"
+}
+```
+
+Color role names in the midnight theme:
+
+| Color role | Token path | Resolved value |
+|---|---|---|
+| `default` | `text.secondary` | #C7D0D9 |
+| `muted` | `text.muted` | #8A97A6 |
+| `interactive` | `accent.primary` | #4DA3FF |
+| `inverse` | `text.inverse` | #0B0F14 |
+| `success` | `accent.success` | #2ECC71 |
+| `warning` | `accent.warning` | #F1C40F |
+| `danger` | `accent.danger` | #E74C3C |
+| `info` | `accent.info` | #00C2FF |
+
+### `icon.roles`
+
+Maps **flat semantic role paths** to **color role names** from `icon.color`. Role paths use `group.name` dot notation.
+
+```json
+"roles": {
+  "action.add":      "interactive",
+  "action.delete":   "danger",
+  "status.warning":  "warning",
+  "nav.settings":    "default"
+}
+```
+
+#### Role Groups
+
+| Group | Purpose |
+|---|---|
+| `action` | User-triggered operations (add, delete, edit, search, …) |
+| `nav` | Navigation elements (home, back, settings, sidebar, …) |
+| `status` | Feedback/state indicators (info, success, warning, error) |
+| `file` | File system representations (file, folder, image, code) |
+| `window` | OS window chrome controls (minimize, maximize, close) |
+
+### `icon.packs`
+
+Optional. Maps role paths to pack-specific icon identifiers. Packs are interchangeable — your application code uses the semantic role, and the pack mapping resolves the identifier.
+
+```json
+"packs": {
+  "lucide": {
+    "url": "https://lucide.dev",
+    "license": "ISC",
+    "status": "license_verification_pending",
+    "mapping": {
+      "action.close":    "x",
+      "action.add":      "plus",
+      "status.warning":  "alert-triangle"
+    }
+  }
+}
+```
+
+Pack `status` values:
+- `license_verification_pending` — license has not been live-verified; do not redistribute
+- `approved` — license verified for your use case
+- `reference_only` — included for reference; verify before use in production
+
+---
+
+## Supported Icon Packs
+
+| Pack | Identifier | URL | License |
+|---|---|---|---|
+| Lucide | `lucide` | https://lucide.dev | ISC |
+| Heroicons | `heroicons` | https://heroicons.com | MIT |
+| Tabler Icons | `tabler` | https://tabler-icons.io | MIT |
+| Bootstrap Icons | `bootstrap-icons` | https://icons.getbootstrap.com | MIT |
+
+> Licenses are unverified at time of writing. See `docs/third-party-references.md` and `references/licenses-to-verify.md`.
+
+---
+
+## Usage in Application Code
+
+### Resolve the color for a role
+
+```js
+// 1. Load icons.json and theme.json for the active theme
+// 2. Get the color role name
+const colorRoleName = icons.icon.roles["action.delete"];  // → "danger"
+// 3. Get the token path
+const tokenPath = icons.icon.color[colorRoleName];        // → "accent.danger"
+// 4. Look up the resolved hex value in the flat token map
+const hex = flatTokens[tokenPath];                        // → "#E74C3C"
+```
+
+### Resolve the pack icon name for a role
+
+```js
+const iconName = icons.icon.packs.lucide.mapping["action.delete"]; // → "trash-2"
+```
+
+### Resolve the icon size
+
+```js
+const sizePx = icons.icon.size.md;  // → 16
+```
+
+### C++ (Win32)
+
+```cpp
+// Color by role
+COLORREF deleteIconColor = theme.ResolveToken("accent.danger"); // #E74C3C
+
+// Icon size
+int iconSize = (int)iconSystem.GetSize("md"); // 16
+
+// Pack identifier (for bitmap/SVG lookup)
+std::string iconName = iconSystem.GetPackId("action.delete", "lucide"); // "trash-2"
+```
+
+### CSS
+
+The generated `dist/css/midnight.css` exposes all token values. Reference the token that your role maps to:
+
+```css
+/* action.delete → danger → accent.danger */
+.icon-delete { color: var(--accent-danger); /* #E74C3C */ }
+```
+
+---
+
+## Adding a New Role
+
+1. Add the role to `icon.roles` in `icons.json`:
+   ```json
+   "action.archive": "muted"
+   ```
+2. If needed, add pack mappings in `icon.packs.<packId>.mapping`:
+   ```json
+   "action.archive": "archive"
+   ```
+3. Run `npm run validate` to confirm the color role name exists in `icon.color`.
+
+## Adding a New Color Role
+
+1. Add a new entry to `icon.color` in `icons.json`:
+   ```json
+   "highlight": "accent.secondary"
+   ```
+2. Verify `accent.secondary` exists in `theme.tokens` — the validator will catch it if not.
+3. Use the new color role in `icon.roles`:
+   ```json
+   "action.pin": "highlight"
+   ```
+
+## Authoring a New Theme
+
+Your theme's `icons.json` must define all required fields in `icon.color`. The color role names themselves are arbitrary, but you must define every name that `icon.roles` references. The validator will report any role that maps to an undefined color name as an error.
+
+Your theme must also define the token paths used in `icon.color` in `theme.tokens`. For example, if `icon.color.danger = "accent.danger"`, then `theme.tokens.accent.danger` must be defined.
+
 
 ## Concepts
 

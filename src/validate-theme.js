@@ -94,7 +94,7 @@ function validateSemantic(semantic, theme) {
   return errors;
 }
 
-function validateComponents(components, scale) {
+function validateComponents(components, theme) {
   const errors = [];
 
   assert(components && typeof components === "object", "Components file must be an object", errors);
@@ -102,11 +102,18 @@ function validateComponents(components, scale) {
     return errors;
   }
 
-  const flatScale = flattenTokens(scale || {});
+  const flatTokens = flattenTokens(theme.tokens || {});
+  const flatScale = flattenTokens(theme.scale || {});
+
+  // A token ref is valid if it exists in either the color tokens or the scale tokens.
+  // Key-in-object is used instead of Boolean(value) to avoid false-negatives on 0.
+  function hasToken(ref) {
+    return (ref in flatTokens) || (ref in flatScale);
+  }
 
   function walkNode(node, nodePath) {
     if (node === null || node === undefined) {
-      errors.push(`Component node at ${nodePath} is null/undefined`);
+      errors.push(`Component node at '${nodePath}' is null/undefined`);
       return;
     }
     if (typeof node === "object" && !Array.isArray(node)) {
@@ -115,18 +122,16 @@ function validateComponents(components, scale) {
       }
       return;
     }
-    // Scalar: must be a number, or a token ref that exists in scale
     if (typeof node === "number") {
-      return; // raw number value is allowed
+      return; // raw pixel value — always allowed
     }
     if (typeof node === "string") {
       if (TOKEN_REF_PATTERN.test(node)) {
-        assert(Boolean(flatScale[node]), `Component token ref '${nodePath}' points to missing scale key '${node}'`, errors);
+        assert(hasToken(node), `Component '${nodePath}' references missing token '${node}'`, errors);
       }
-      // plain string (non-ref) is allowed (e.g. a CSS value)
-      return;
+      return; // plain string (non-ref) is allowed
     }
-    errors.push(`Component node at ${nodePath} has unexpected type: ${typeof node}`);
+    errors.push(`Component node at '${nodePath}' has unexpected type: ${typeof node}`);
   }
 
   for (const [key, value] of Object.entries(components)) {
@@ -144,37 +149,57 @@ function validateIcons(icons, theme) {
     return errors;
   }
 
-  assert(icons.roles && typeof icons.roles === "object", "Icons file must have a 'roles' object", errors);
+  // meta
+  assert(icons.meta && typeof icons.meta === "object", "icons.meta required", errors);
+  if (icons.meta) {
+    assert(typeof icons.meta.themeId === "string" && icons.meta.themeId.length > 0,
+      "icons.meta.themeId must be a non-empty string", errors);
+    assert(typeof icons.meta.version === "string" && /^[0-9]+\.[0-9]+\.[0-9]+$/.test(icons.meta.version),
+      "icons.meta.version must match x.y.z", errors);
+  }
 
-  if (!icons.roles) {
+  // icon block
+  assert(icons.icon && typeof icons.icon === "object", "icons.icon required", errors);
+  if (!icons.icon || typeof icons.icon !== "object") {
     return errors;
   }
 
-  const flatTokens = flattenTokens(theme.tokens || {});
-  const flatScale = flattenTokens(theme.scale || {});
+  const icon = icons.icon;
 
-  for (const [group, groupValue] of Object.entries(icons.roles)) {
-    if (!groupValue || typeof groupValue !== "object") {
-      errors.push(`Icon role group '${group}' must be an object`);
-      continue;
+  // icon.size — all values must be positive numbers
+  assert(icon.size && typeof icon.size === "object", "icons.icon.size required", errors);
+  if (icon.size && typeof icon.size === "object") {
+    for (const [sizeName, sizeValue] of Object.entries(icon.size)) {
+      assert(typeof sizeValue === "number" && sizeValue > 0,
+        `icons.icon.size.${sizeName} must be a positive number`, errors);
     }
-    for (const [role, descriptor] of Object.entries(groupValue)) {
-      const rolePath = `${group}.${role}`;
-      assert(descriptor && typeof descriptor === "object", `Icon role '${rolePath}' must be an object with semantic and size fields`, errors);
-      if (!descriptor || typeof descriptor !== "object") {
-        continue;
+  }
+
+  // icon.color — values must be dot-notation paths that resolve in theme.tokens
+  assert(icon.color && typeof icon.color === "object", "icons.icon.color required", errors);
+  const flatTokens = flattenTokens(theme.tokens || {});
+  const definedColorNames = new Set();
+  if (icon.color && typeof icon.color === "object") {
+    for (const [colorName, tokenPath] of Object.entries(icon.color)) {
+      definedColorNames.add(colorName);
+      assert(typeof tokenPath === "string" && TOKEN_REF_PATTERN.test(tokenPath),
+        `icons.icon.color.${colorName} must be a dot-notation token path`, errors);
+      if (typeof tokenPath === "string") {
+        assert(tokenPath in flatTokens,
+          `icons.icon.color.${colorName} references missing token '${tokenPath}'`, errors);
       }
-      assert(typeof descriptor.semantic === "string" && TOKEN_REF_PATTERN.test(descriptor.semantic),
-        `Icon role '${rolePath}'.semantic must be a dot-notation token path`, errors);
-      assert(typeof descriptor.size === "string" && TOKEN_REF_PATTERN.test(descriptor.size),
-        `Icon role '${rolePath}'.size must be a dot-notation scale path`, errors);
-      if (typeof descriptor.semantic === "string") {
-        assert(Boolean(flatTokens[descriptor.semantic]),
-          `Icon role '${rolePath}'.semantic '${descriptor.semantic}' not found in theme tokens`, errors);
-      }
-      if (typeof descriptor.size === "string") {
-        assert(Boolean(flatScale[descriptor.size]),
-          `Icon role '${rolePath}'.size '${descriptor.size}' not found in theme scale`, errors);
+    }
+  }
+
+  // icon.roles — values must be color names defined in icon.color
+  assert(icon.roles && typeof icon.roles === "object", "icons.icon.roles required", errors);
+  if (icon.roles && typeof icon.roles === "object") {
+    for (const [rolePath, colorName] of Object.entries(icon.roles)) {
+      assert(typeof colorName === "string" && colorName.length > 0,
+        `icons.icon.roles.${rolePath} must be a non-empty string`, errors);
+      if (typeof colorName === "string") {
+        assert(definedColorNames.has(colorName),
+          `icons.icon.roles.${rolePath} references undefined color name '${colorName}'`, errors);
       }
     }
   }
@@ -193,7 +218,7 @@ function validateThemePair(themePath, semanticPath, componentsPath, iconsPath) {
 
   if (componentsPath) {
     const components = readJson(componentsPath);
-    errors.push(...validateComponents(components, theme.scale));
+    errors.push(...validateComponents(components, theme));
   }
 
   if (iconsPath) {

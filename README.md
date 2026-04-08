@@ -1,6 +1,6 @@
 # @mrivoe/themes
 
-Universal single-source design token system for cross-language theming.
+`@mrivoe/themes` is a universal design token and UI system for software projects that use a UI or GUI. It supports reusable theme foundations for colors, icons, buttons, controls, layout primitives, and semantic component styling across web, desktop, plugins, and cross-language software projects. The repository also maintains optional compatibility references for free/open icon packs and UI libraries while keeping the core theme source framework-agnostic.
 
 ## Version
 
@@ -27,11 +27,16 @@ Core rule: a theme defines what a color means, not where it is used.
   - semantic.schema.json
   - components.schema.json
   - icons.schema.json
+  - references.schema.json
 - themes/
   - midnight/theme.json
   - midnight/semantic.json
   - midnight/components.json
   - midnight/icons.json
+- references/
+  - icon-packs.json
+  - ui-libraries.json
+  - licenses-to-verify.md
 - adapters/
   - css/export-css.js
   - json/export-json.js
@@ -64,6 +69,7 @@ Core rule: a theme defines what a color means, not where it is used.
   - create-theme.md
   - icon-system.md
   - component-token-guide.md
+  - third-party-references.md
 
 ## Canonical Token Paths
 
@@ -195,6 +201,16 @@ Example generated output snippet (JSON export):
   "window.foreground": "#E8EDF5"
 }
 ```
+
+## Third-Party References
+
+Icon packs and UI design systems are referenced for **inspiration and optional compatibility mapping only**. No third-party code or assets are embedded in the core theme source files. All pack references are marked `license_verification_pending` until verified.
+
+See:
+- `references/icon-packs.json` — tracked icon pack sources
+- `references/ui-libraries.json` — UI library and design system references
+- `references/licenses-to-verify.md` — verification checklist
+- `docs/third-party-references.md` — policy and usage rules
 
 ## Token Governance
 

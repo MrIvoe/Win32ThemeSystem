@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "lucide",
+      "name": "Lucide",
+      "type": "icon-pack",
+      "url": "https://lucide.dev",
+      "license": "ISC",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Use icon names for action/nav/status role mapping. Names in the mapping are kebab-case identifiers."
+    },
+    {
+      "id": "heroicons",
+      "name": "Heroicons",
+      "type": "icon-pack",
+      "url": "https://heroicons.com",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Useful for modern outline/solid role variants. Names in the mapping are kebab-case identifiers."
+    },
+    {
+      "id": "tabler",
+      "name": "Tabler Icons",
+      "type": "icon-pack",
+      "url": "https://tabler-icons.io",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Large icon set with consistent stroke-based style. Names in the mapping are kebab-case identifiers."
+    },
+    {
+      "id": "bootstrap-icons",
+      "name": "Bootstrap Icons",
+      "type": "icon-pack",
+      "url": "https://icons.getbootstrap.com",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Pack from Bootstrap project. Icons can be used independently of the Bootstrap CSS framework."
+    },
+    {
+      "id": "feather",
+      "name": "Feather Icons",
+      "type": "icon-pack",
+      "url": "https://feathericons.com",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Minimal, stroke-based open source icon set. Good baseline for action icon role coverage."
+    },
+    {
+      "id": "material-symbols",
+      "name": "Material Symbols",
+      "type": "icon-pack",
+      "url": "https://fonts.google.com/icons",
+      "license": "Apache-2.0",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Google Material icon set. Available in outlined, filled, rounded, and sharp variants. License requires attribution."
+    },
+    {
+      "id": "font-awesome-free",
+      "name": "Font Awesome Free",
+      "type": "icon-pack",
+      "url": "https://fontawesome.com/icons?d=gallery&m=free",
+      "license": "CC BY 4.0 (icons), MIT (code), SIL OFL 1.1 (fonts)",
+      "status": "license_verification_pending",
+      "usage": "semantic icon mapping reference",
+      "notes": "Free tier only. Pro icons require a license. Split license structure \u2014 verify per icon category before use."
+    }
+  ]
+}
