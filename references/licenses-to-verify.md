@@ -43,11 +43,40 @@ Verification is needed when:
 | shadcn | shadcn/ui | MIT | https://ui.shadcn.com | reference_only — no code copied |
 | radix | Radix Primitives | MIT | https://www.radix-ui.com | reference_only — no code copied |
 | ant-design | Ant Design | MIT | https://ant.design | reference_only — no code copied |
+| awesome-winui | Awesome WinUI | MIT | https://github.com/scottkuhl/awesome-winui | reference_only — curation only |
+| mdb-ui-kit | MDB UI Kit | MIT | https://github.com/mdbootstrap/mdb-ui-kit | **verification_pending** |
+| pixelkit-bootstrap | PixelKit Bootstrap | Unknown | https://github.com/Pixelkit/PixelKit-Bootstrap-UI-Kits | **verification_pending** |
+| flutter-ui-kit | Flutter UI Kit | MIT | https://github.com/iampawan/Flutter-UI-Kit | reference_only — no code copied |
+| flatui | FlatUI | MIT | https://github.com/eluleci/FlatUI | reference_only — no code copied |
+| kitten-tricks | Kitten Tricks | MIT | https://github.com/akveo/kittenTricks | reference_only — no code copied |
+| aragon-ui | Aragon UI | AGPL-3.0 | https://github.com/aragon/ui | reference_only — no code copied |
+| tabler | Tabler | MIT | https://github.com/tabler/tabler | reference_only — no code copied |
+| snapkit | SnapKit | MIT | https://github.com/SnapKit/SnapKit | reference_only — no code copied |
+| tamagui | Tamagui | MIT | https://github.com/tamagui/tamagui | reference_only — no code copied |
+| react-native-ui-kitten | React Native UI Kitten | MIT | https://github.com/akveo/react-native-ui-kitten | reference_only — no code copied |
+| material-kit | Material Kit | Unknown | https://github.com/creativetimofficial/material-kit | **verification_pending** |
+| permissions-kit | PermissionsKit | MIT | https://github.com/sparrowcode/PermissionsKit | reference_only — no code copied |
+| element-starter | Element Starter | MIT | https://github.com/ElementUI/element-starter | reference_only — no code copied |
+| augmented-ui | Augmented UI | MIT | https://github.com/propjockey/augmented-ui | reference_only — no code copied |
+| bevypunk | Bevypunk | MIT | https://github.com/IDEDARY/Bevypunk | reference_only — no code copied |
+| discord-cyberpunk | Discord Cyberpunk 2077 Theme | Unknown | https://github.com/PatrykBielanin/discord-cyberpunk2077-theme | **verification_pending** |
 
 For `reference_only` entries, no code or assets are directly embedded. The reference is used only for:
 - naming conventions
 - component state pattern ideas
 - control behavior reference
+- visual inspiration and aesthetic direction
+- motion and transition patterns
+- accessibility and state machine patterns
+
+### Verification checklist for pending entries
+
+For each **verification_pending** entry:
+- [ ] Visit the GitHub repository and confirm the license in LICENSE file or package.json
+- [ ] Confirm the license is permissive (MIT, Apache-2.0, ISC, or similar)
+- [ ] Confirm use in design/technical reference work does not require attribution
+- [ ] Document findings in this file with date
+- [ ] Add to appropriate reference collections once confirmed
 
 ---
 

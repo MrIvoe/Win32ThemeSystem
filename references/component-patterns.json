@@ -1,0 +1,246 @@
+{
+  "meta": {
+    "version": "0.0.003",
+    "description": "Component interaction patterns and state contracts for Spaces theme rendering"
+  },
+  "patterns": {
+    "button": {
+      "states": ["default", "hover", "active", "focus", "disabled", "loading"],
+      "variants": ["primary", "secondary", "danger", "ghost", "compact", "soft", "outlined"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "textColor": "text token",
+        "borderColor": "border token",
+        "borderRadius": "radius token",
+        "padding": "space tokens",
+        "opacity": "disabled state opacity"
+      },
+      "accessibility": {
+        "focus": "visible focus ring required",
+        "disabled": "reduced opacity and cursor:not-allowed",
+        "loading": "spinner animation with disabled state"
+      },
+      "stateTransitions": {
+        "default->hover": "smooth background change",
+        "hover->active": "immediate click feedback",
+        "any->focus": "visible focus ring overlay",
+        "any->disabled": "opacity reduction"
+      }
+    },
+    "switch": {
+      "states": ["on", "off", "indeterminate", "disabled"],
+      "variants": ["minimal", "pill", "high-contrast"],
+      "properties": {
+        "trackColor": "surface token or accent token",
+        "thumbColor": "text or inverse token",
+        "borderRadius": "radius token",
+        "size": "size token"
+      },
+      "accessibility": {
+        "focus": "visible focus indicator",
+        "disabled": "reduced opacity",
+        "ariaChecked": "true/false/mixed"
+      }
+    },
+    "slider": {
+      "states": ["default", "hover", "focus", "active", "disabled"],
+      "variants": ["bar", "track", "stepped"],
+      "properties": {
+        "trackColor": "surface token",
+        "filledColor": "accent token",
+        "thumbColor": "accent token",
+        "thumbSize": "size token",
+        "borderRadius": "radius token"
+      },
+      "accessibility": {
+        "ariaValueNow": "current numeric value",
+        "ariaValueMin": "minimum value",
+        "ariaValueMax": "maximum value",
+        "ariaOrientation": "horizontal or vertical"
+      }
+    },
+    "dropdown": {
+      "states": ["closed", "open", "hover", "focus", "error", "disabled"],
+      "variants": ["compact", "standard", "combobox"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "textColor": "text token",
+        "borderColor": "border token",
+        "dropdownBackground": "surface overlay token",
+        "selectedBackground": "state.active token"
+      },
+      "accessibility": {
+        "ariaHasPopup": "listbox",
+        "ariaExpanded": "true/false for open state",
+        "role": "combobox or listbox"
+      }
+    },
+    "select": {
+      "states": ["closed", "open", "selected", "hover", "focus", "disabled"],
+      "variants": ["native", "custom"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "textColor": "text token",
+        "selectionColor": "accent token"
+      }
+    },
+    "input": {
+      "states": ["default", "focus", "filled", "error", "disabled", "placeholder"],
+      "variants": ["outlined", "filled", "ghost"],
+      "properties": {
+        "backgroundColor": "surface or transparent",
+        "textColor": "text token",
+        "borderColor": "border token",
+        "focusBorderColor": "accent token",
+        "placeholderColor": "text.muted token"
+      },
+      "accessibility": {
+        "ariaInvalid": "true for error state",
+        "ariaDescribedBy": "error message id"
+      }
+    },
+    "menu": {
+      "states": ["default", "hovered", "selected", "disabled", "focused"],
+      "variants": ["compact", "standard", "hierarchical"],
+      "properties": {
+        "itemBackground": "surface token",
+        "hoverBackground": "state.hover token",
+        "selectedBackground": "state.active token",
+        "separatorColor": "border token",
+        "textColor": "text token"
+      },
+      "accessibility": {
+        "role": "menu or menubar",
+        "ariaSelected": "true/false for selected items",
+        "ariaDisabled": "true for disabled items"
+      }
+    },
+    "tabs": {
+      "states": ["default", "active", "hover", "focus", "disabled"],
+      "variants": ["standard", "minimal", "pill"],
+      "properties": {
+        "tabBackground": "surface or transparent",
+        "activeBackground": "accent or state.active",
+        "indicatorColor": "accent token",
+        "textColor": "text token",
+        "activeTextColor": "text or accent"
+      },
+      "accessibility": {
+        "role": "tab or tablist",
+        "ariaSelected": "true/false",
+        "ariaControls": "panel-id"
+      }
+    },
+    "card": {
+      "states": ["default", "hover", "focus", "elevated"],
+      "variants": ["elevated", "outlined", "filled"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "borderColor": "border token",
+        "shadowColor": "shadow or lifted elevation",
+        "padding": "space tokens"
+      }
+    },
+    "modal": {
+      "states": ["visible", "hidden", "transitioning"],
+      "variants": ["standard", "alert", "actions"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "backdropColor": "overlay or scrim token",
+        "backdropOpacity": "0.5-0.7 range",
+        "borderRadius": "radius token"
+      },
+      "accessibility": {
+        "role": "dialog",
+        "ariaModal": "true",
+        "ariaLabelledBy": "title-id",
+        "focus-trap": "required within modal"
+      }
+    },
+    "notification": {
+      "states": ["visible", "auto-dismiss", "dismissed"],
+      "variants": ["toast", "banner", "inline"],
+      "types": ["info", "warning", "error", "success"],
+      "properties": {
+        "backgroundColor": "semantic token (success, warning, error)",
+        "textColor": "text.inverse or text token",
+        "accentColor": "state token",
+        "duration": "auto-dismiss time in ms"
+      }
+    },
+    "titlebar": {
+      "states": ["active", "inactive"],
+      "variants": ["standard", "compact"],
+      "properties": {
+        "backgroundColor": "surface or accent token",
+        "textColor": "text token",
+        "buttonSize": "size token",
+        "padding": "space tokens"
+      }
+    },
+    "tray-menu": {
+      "states": ["visible", "hover", "selected", "disabled"],
+      "variants": ["standard", "compact"],
+      "properties": {
+        "backgroundColor": "surface token",
+        "itemColor": "text token",
+        "hoverColor": "state.hover token",
+        "separatorColor": "border token"
+      }
+    },
+    "fence-shell": {
+      "states": ["active", "inactive"],
+      "variants": ["window-frame", "card-container", "embedded"],
+      "properties": {
+        "frameColor": "surface or border token",
+        "shadowDepth": "radius or elevation token",
+        "titlebarHeight": "size token",
+        "borderWidth": "size token"
+      }
+    },
+    "plugin-card": {
+      "states": ["default", "hover", "selected", "error"],
+      "variants": ["compact", "standard"],
+      "properties": {
+        "cardBackground": "surface token",
+        "accentColor": "accent or semantic token",
+        "borderColor": "border token",
+        "iconColor": "icon semantic token"
+      }
+    }
+  },
+  "motionPresets": {
+    "standard": {
+      "description": "Default Material-inspired transitions",
+      "duration": "400ms",
+      "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      "examples": ["modal enter", "dialog fade", "page transitions"]
+    },
+    "quick": {
+      "description": "Fast micro-interactions",
+      "duration": "200ms",
+      "easing": "cubic-bezier(0.4, 0.0, 0.2, 1.0)",
+      "examples": ["hover effects", "button click", "checkbox toggle"]
+    },
+    "deliberate": {
+      "description": "Slower, more pronounced transitions",
+      "duration": "600ms",
+      "easing": "cubic-bezier(0.34, 1.56, 0.64, 1.0)",
+      "examples": ["menu open", "slide-in panels", "accordions"]
+    },
+    "minimal": {
+      "description": "No animation or immediate feedback only",
+      "duration": "0ms or 100ms",
+      "easing": "linear",
+      "examples": ["accessibility mode", "reduced motion preference"]
+    }
+  },
+  "accessibility": {
+    "colorContrast": "WCAG AA minimum 4.5:1 for text, 3:1 for graphics",
+    "focusIndicator": "visible outline or ring on all interactive elements",
+    "stateCommunication": "color + additional visual indicator (icon, pattern, text)",
+    "disabledState": "clear visual distinction with opacity or desaturation",
+    "ariaLabels": "all controls must have accessible names",
+    "keyboardNavigation": "all interactive elements keyboard accessible"
+  }
+}

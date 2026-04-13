@@ -69,6 +69,176 @@
       "status": "reference_only",
       "usage": "component token naming and design variable conventions",
       "notes": "Ant Design v5 design token system used as a reference for component-level token granularity."
+    },
+    {
+      "id": "awesome-winui",
+      "name": "Awesome WinUI",
+      "type": "curated-list",
+      "url": "https://github.com/scottkuhl/awesome-winui",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "Windows/WinUI component patterns and desktop UI references",
+      "notes": "Curated list of WinUI 3 resources. Reference for Win32/desktop shell component organization and naming."
+    },
+    {
+      "id": "mdb-ui-kit",
+      "name": "MDB UI Kit",
+      "type": "ui-library",
+      "url": "https://github.com/mdbootstrap/mdb-ui-kit",
+      "license": "MIT",
+      "status": "license_verification_pending",
+      "usage": "responsive component library patterns and responsive breakpoint strategy",
+      "notes": "Material Design Bootstrap-based library. Reference for responsive design patterns and component breakpoints."
+    },
+    {
+      "id": "pixelkit-bootstrap",
+      "name": "PixelKit Bootstrap UI Kits",
+      "type": "ui-library",
+      "url": "https://github.com/Pixelkit/PixelKit-Bootstrap-UI-Kits",
+      "license": "license_to_verify",
+      "status": "license_verification_pending",
+      "usage": "desktop/web UI kit component family patterns",
+      "notes": "Multi-theme Bootstrap UI Kit collection. Reference for component family organization and theme switching patterns."
+    },
+    {
+      "id": "flutter-ui-kit",
+      "name": "Flutter UI Kit",
+      "type": "design-system",
+      "url": "https://github.com/iampawan/Flutter-UI-Kit",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "mobile/cross-platform component family and motion patterns",
+      "notes": "Reference for component family organization in mobile contexts and transition/motion design patterns."
+    },
+    {
+      "id": "flatui",
+      "name": "FlatUI",
+      "type": "design-system",
+      "url": "https://github.com/eluleci/FlatUI",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "flat design aesthetic and minimalist component styling",
+      "notes": "Reference for flat/minimal design direction. Useful for component minimal family variant."
+    },
+    {
+      "id": "kitten-tricks",
+      "name": "Kitten Tricks",
+      "type": "design-system",
+      "url": "https://github.com/akveo/kittenTricks",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "mobile UI component showcase and state management patterns",
+      "notes": "React Native mobile showcase. Reference for component state management and mobile-first interaction patterns."
+    },
+    {
+      "id": "aragon-ui",
+      "name": "Aragon UI",
+      "type": "design-system",
+      "url": "https://github.com/aragon/ui",
+      "license": "AGPL-3.0",
+      "status": "reference_only",
+      "usage": "modern component composition and token-driven styling patterns",
+      "notes": "Decentralized governance UI system. Reference for compositional component architecture and token-driven styling."
+    },
+    {
+      "id": "tabler",
+      "name": "Tabler",
+      "type": "design-system",
+      "url": "https://github.com/tabler/tabler",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "dashboard/admin UI patterns and icon system organization",
+      "notes": "Admin dashboard template system. Reference for dashboard-specific component patterns and icon pack integration."
+    },
+    {
+      "id": "snapkit",
+      "name": "SnapKit",
+      "type": "design-system",
+      "url": "https://github.com/SnapKit/SnapKit",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "layout constraint and spacing system reference",
+      "notes": "iOS layout framework. Reference for constraint-based layout models and spacing/sizing hierarchies."
+    },
+    {
+      "id": "tamagui",
+      "name": "Tamagui",
+      "type": "design-system",
+      "url": "https://github.com/tamagui/tamagui",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "universal theme token system across web and native platforms",
+      "notes": "Cross-platform design system. Reference for implementing consistent tokens across desktop, web, and mobile targets."
+    },
+    {
+      "id": "react-native-ui-kitten",
+      "name": "React Native UI Kitten",
+      "type": "design-system",
+      "url": "https://github.com/akveo/react-native-ui-kitten",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "mobile component theming and runtime theme switching patterns",
+      "notes": "Mobile-first component theming system. Reference for runtime theme selection and mobile component families."
+    },
+    {
+      "id": "material-kit",
+      "name": "Material Kit",
+      "type": "design-system",
+      "url": "https://github.com/creativetimofficial/material-kit",
+      "license": "license_to_verify",
+      "status": "license_verification_pending",
+      "usage": "Material Design template and component showcase patterns",
+      "notes": "Production Material Design UI template. Reference for template-level component organization."
+    },
+    {
+      "id": "permissions-kit",
+      "name": "PermissionsKit",
+      "type": "design-system",
+      "url": "https://github.com/sparrowcode/PermissionsKit",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "system integration UI patterns and modal/dialog styling",
+      "notes": "iOS system integration library. Reference for permission/system dialog styling and integration patterns."
+    },
+    {
+      "id": "element-starter",
+      "name": "Element Starter",
+      "type": "design-system",
+      "url": "https://github.com/ElementUI/element-starter",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "enterprise component library organization and theme variable strategy",
+      "notes": "Enterprise Vue component system. Reference for large-scale component organization and theme variable management."
+    },
+    {
+      "id": "augmented-ui",
+      "name": "Augmented UI",
+      "type": "design-system",
+      "url": "https://github.com/propjockey/augmented-ui",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "specialized UI effects and visual enhancement patterns",
+      "notes": "CSS-based UI enhancement library. Reference for decorative and enhancement layer patterns (future expansion)."
+    },
+    {
+      "id": "bevypunk",
+      "name": "Bevypunk",
+      "type": "design-system",
+      "url": "https://github.com/IDEDARY/Bevypunk",
+      "license": "MIT",
+      "status": "reference_only",
+      "usage": "cyberpunk/futuristic UI aesthetic and motion design patterns",
+      "notes": "Game engine UI system with cyberpunk aesthetic. Reference for futuristic and cyber component family design direction."
+    },
+    {
+      "id": "discord-cyberpunk",
+      "name": "Discord Cyberpunk 2077 Theme",
+      "type": "theme",
+      "url": "https://github.com/PatrykBielanin/discord-cyberpunk2077-theme",
+      "license": "license_to_verify",
+      "status": "license_verification_pending",
+      "usage": "cyberpunk visual direction and color harmony patterns",
+      "notes": "Custom Discord theme with cyberpunk aesthetic. Reference for cyber-futuristic color schemes and neon/high-contrast patterns."
     }
   ]
 }

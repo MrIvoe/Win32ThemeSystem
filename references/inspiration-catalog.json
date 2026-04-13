@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "version": "0.0.003",
+    "description": "Mapping of external UI kit inspiration sources to specific Spaces theme expansion areas",
+    "lastUpdated": "2026-04-09"
+  },
+  "inspirationMaps": {
+    "component-families": {
+      "desktop-fluent": {
+        "sources": ["fluent", "awesome-winui", "tabler"],
+        "focus": "Windows desktop shell and ribbon-like layouts",
+        "characteristics": ["layered depth", "segmented controls", "command bars", "pivot panes"]
+      },
+      "dashboard-modern": {
+        "sources": ["tabler", "tabler-ui", "ant-design", "element-starter"],
+        "focus": "Admin dashboards with data-heavy layouts",
+        "characteristics": ["data tables", "metric cards", "filter controls", "responsive grids"]
+      },
+      "flat-minimal": {
+        "sources": ["flatui", "shadcn", "bootstrap"],
+        "focus": "Minimal, clean, modern interfaces",
+        "characteristics": ["flat edges", "subtle shadows", "generous whitespace", "restrained colors"]
+      },
+      "soft-mobile": {
+        "sources": ["flutter-ui-kit", "react-native-ui-kitten", "kitten-tricks"],
+        "focus": "Mobile-first responsive UI with soft interactions",
+        "characteristics": ["rounded corners", "smooth transitions", "touch-friendly sizes", "bottom navigation"]
+      },
+      "cyber-futuristic": {
+        "sources": ["bevypunk", "discord-cyberpunk", "augmented-ui"],
+        "focus": "High-contrast, neon-inspired, sci-fi aesthetic",
+        "characteristics": ["neon accents", "glow effects", "high contrast", "monospace typography"]
+      }
+    },
+    "component-types": {
+      "buttons": {
+        "primary-sources": ["material", "fluent", "radix", "ant-design"],
+        "secondary-sources": ["shadcn", "bootstrap", "tabler-ui"],
+        "contract-focus": "button states: default, hover, active, disabled, focus, loading",
+        "families": ["compact", "soft", "outlined", "ghost", "high-contrast"]
+      },
+      "switches-toggles": {
+        "primary-sources": ["material", "radix", "ant-design"],
+        "secondary-sources": ["flutter-ui-kit", "react-native-ui-kitten"],
+        "contract-focus": "toggle states: on, off, indeterminate, disabled",
+        "families": ["minimal", "pill", "high-contrast"]
+      },
+      "sliders": {
+        "primary-sources": ["material", "fluent", "snapkit"],
+        "secondary-sources": ["ant-design", "tabler-ui"],
+        "contract-focus": "slider states: dragging, focused, disabled, range vs single",
+        "families": ["bar", "track", "stepped"]
+      },
+      "dropdowns-selects": {
+        "primary-sources": ["radix", "ant-design", "element-starter"],
+        "secondary-sources": ["shadcn", "bootstrap", "tabler-ui"],
+        "contract-focus": "dropdown states: open/closed, selected, disabled, multi-select",
+        "families": ["compact", "standard", "combobox"]
+      },
+      "input-fields": {
+        "primary-sources": ["material", "shadcn", "ant-design"],
+        "secondary-sources": ["radix", "flutter-ui-kit"],
+        "contract-focus": "input states: focused, filled, error, placeholder, disabled",
+        "families": ["outlined", "filled", "ghost"]
+      },
+      "menus": {
+        "primary-sources": ["material", "fluent", "radix"],
+        "secondary-sources": ["tabler-ui", "ant-design"],
+        "contract-focus": "menu states: hovered, selected, disabled, separators, submenus",
+        "families": ["compact", "standard", "hierarchical"]
+      },
+      "tabs": {
+        "primary-sources": ["material", "ant-design", "tabler-ui"],
+        "secondary-sources": ["shadcn", "bootstrap"],
+        "contract_focus": "tab states: active, inactive, disabled, icons",
+        "families": ["standard", "minimal", "pill"]
+      },
+      "cards": {
+        "primary-sources": ["material", "flutter-ui-kit", "tabler"],
+        "secondary-sources": ["shadcn", "bootstrap"],
+        "contract-focus": "card surface, elevation, interactive states, content layouts",
+        "families": ["elevated", "outlined", "filled"]
+      },
+      "modals-dialogs": {
+        "primary-sources": ["material", "fluent", "radix"],
+        "secondary-sources": ["permissions-kit", "ant-design"],
+        "contract-focus": "dialog backdrop, dismiss behavior, action placement, accessibility",
+        "families": ["standard", "alert", "actions"]
+      },
+      "notifications": {
+        "primary-sources": ["material", "ant-design", "tabler-ui"],
+        "secondary-sources": ["tabler", "bootstrap"],
+        "contract-focus": "toast/snackbar states: info, warning, error, success, auto-dismiss",
+        "families": ["toast", "banner", "inline"]
+      }
+    },
+    "motion-patterns": {
+      "sources": ["flutter-ui-kit", "kitten-tricks", "material", "tamagui"],
+      "presets": {
+        "standard": "Material-inspired 300-400ms transitions with easing",
+        "quick": "Fast 150-200ms transitions for micro-interactions",
+        "deliberate": "Slower 500-800ms transitions with bounce/spring effects",
+        "minimal": "No motion or 100ms immediate feedback only"
+      }
+    },
+    "icon-systems": {
+      "sources": ["tabler", "bootstrap", "awesome-winui"],
+      "packs": {
+        "lucide": "Consistent stroke-based iconography",
+        "heroicons": "Outline and solid stroke variations",
+        "tabler": "Monospace-inspired stroke icons for dashboards",
+        "bootstrap-icons": "Bootstrap ecosystem compatible icons"
+      }
+    },
+    "spacing-sizing": {
+      "sources": ["snapkit", "material", "tamagui"],
+      "hierarchies": ["control-sm", "control-md", "control-lg", "spacing-xs", "spacing-sm", "spacing-md", "spacing-lg", "spacing-xl"]
+    },
+    "typography": {
+      "sources": ["element-starter", "tabler", "ant-design"],
+      "scales": {
+        "headings": ["h1", "h2", "h3", "h4", "h5", "h6"],
+        "body": ["body-lg", "body-md", "body-sm"],
+        "ui": ["ui-lg", "ui-md", "ui-sm"],
+        "code": ["code-block", "code-inline"]
+      }
+    },
+    "fence-shell-patterns": {
+      "sources": ["fluent", "awesome-winui", "tabler"],
+      "styles": {
+        "window-frame": "Traditional OS window chrome",
+        "card-container": "Floating card with minimal frame",
+        "embedded": "No frame or border, inline surface styling"
+      }
+    }
+  },
+  "frameworkCompatibility": {
+    "note": "All sources are used for inspiration and pattern reference only. No framework-specific code is embedded.",
+    "sources": [
+      "Material Design is framework-agnostic design system documentation",
+      "Fluent Design System is framework-agnostic but Microsoft-influenced",
+      "Components.json and Radix offer accessibility and state machine patterns",
+      "Tamagui and React Native kits provide cross-platform thinking",
+      "All sources are studied for component contract design, not implementation details"
+    ]
+  }
+}

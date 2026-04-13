@@ -230,6 +230,92 @@ Example generated output snippet (JSON export):
 }
 ```
 
+## Inspiration and Reference Sources
+
+`@mrivoe/themes` is inspired by and references external UI kits and design systems to inform component patterns, naming conventions, and interaction design. **No code from external sources is embedded in our core theme files.** All inspiration is transformed into our own semantic contracts and token system.
+
+### External Design Systems and UI Kits
+
+We study and learn from:
+
+**Design Systems**
+- Material Design (Google)
+- Fluent Design System (Microsoft)
+- Radix Primitives
+- shadcn/ui
+- Ant Design
+
+**UI Libraries & Kits**
+- Bootstrap
+- Tabler UI
+- MDB UI Kit
+- Flutter UI Kit
+- React Native UI Kitten
+
+**Aesthetic & Component References**
+- FlatUI (flat minimalism)
+- Kitten Tricks (mobile patterns)
+- Aragon UI (compositional architecture)
+- Bevypunk (cyberpunk aesthetics)
+- Discord Cyberpunk Theme (neon/high-contrast)
+
+**Dashboard & Admin Patterns**
+- Tabler (admin templates)
+- Element UI (enterprise components)
+
+**Architecture & Layout**
+- SnapKit (constraint/layout hierarchies)
+- Tamagui (cross-platform tokens)
+- Awesome WinUI (Win32/desktop patterns)
+
+See `references/ui-libraries.json` for the complete list with licenses and usage notes.
+
+### How We Use References
+
+1. **Study**: We research external system documentation, component hierarchies, and interaction patterns
+2. **Extract**: We identify universal patterns (button states, accessibility, visual hierarchy)
+3. **Translate**: We convert patterns into our own semantic tokens and component contracts
+4. **Implement**: We code using our semantic system, not external names or embeddings
+5. **Document**: We record inspiration sources in our reference collections
+
+### Component Style Families
+
+Our five component style families are **inspired by but not copied from** these systems:
+
+| Family | Primary Inspiration | Pattern |
+|--------|-------------------|---------|
+| **desktop-fluent** | Microsoft Fluent, WinUI | Layered depth, command bars, ribbon layouts |
+| **dashboard-modern** | Tabler, Ant Design, Element | Data-dense layouts, metric cards, responsive grids |
+| **flat-minimal** | FlatUI, shadcn | Flat edges, subtle shadows, restrained colors |
+| **soft-mobile** | Flutter UI Kit, Kitten Tricks | Rounded corners, soft shadows, touch-friendly sizes |
+| **cyber-futuristic** | Bevypunk, Discord Cyberpunk | Neon accents, high contrast, sci-fi typography |
+
+Each family is a **semantic design direction**, not a port or copy of any external system.
+
+### Reference Documentation
+
+- [`references/ui-libraries.json`](references/ui-libraries.json) — All external sources with licenses
+- [`references/inspiration-catalog.json`](references/inspiration-catalog.json) — Mapping of sources to component areas
+- [`references/style-families.json`](references/style-families.json) — Style family definitions and inspirations
+- [`references/component-patterns.json`](references/component-patterns.json) — Component state machines and contracts
+- [`docs/inspiration-policy.md`](docs/inspiration-policy.md) — Full policy on how we use external references
+- [`docs/style-family-guide.md`](docs/style-family-guide.md) — Detailed guide to each component family
+- [`docs/resource-system.md`](docs/resource-system.md) — How runtime-selectable resources work
+
+### Attribution
+
+When `@mrivoe/themes` transitions from private to public release, full attribution will be added to the README and generated artifacts for all inspiration sources.
+
+### Why This Approach
+
+✅ Learn from the best UI/UX research available  
+✅ Maintain independence in our design system  
+✅ Respect external projects' intellectual property  
+✅ Stay transparent about our inspirations  
+✅ Build something that's genuinely Spaces' own  
+
+The external systems are teachers and reference materials. Our components, tokens, and families are our own.
+
 ## Third-Party References
 
 Icon packs and UI design systems are referenced for **inspiration and optional compatibility mapping only**. No third-party code or assets are embedded in the core theme source files. All pack references are marked `license_verification_pending` until verified.

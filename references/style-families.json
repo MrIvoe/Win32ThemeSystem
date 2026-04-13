@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "version": "0.0.003",
+    "description": "Style family definitions for Spaces theme component rendering",
+    "note": "These are semantic component family patterns, not framework-specific implementations"
+  },
+  "families": {
+    "desktop-fluent": {
+      "label": "Desktop Fluent",
+      "description": "Microsoft Fluent-inspired desktop shell UI with layered depth and ribbon-like components",
+      "targetPlatforms": ["win32", "desktop"],
+      "characteristics": {
+        "cornerRadius": "radius.md",
+        "depth": "elevated with layered shadows",
+        "density": "comfortable with clear hit targets",
+        "spacing": "generous with predictable grid",
+        "typography": "Segoe UI across family"
+      },
+      "componentOverrides": {
+        "button": "fluent-style buttons with command bar integration",
+        "menu": "vertical/horizontal command menus with grouped items",
+        "fence": "window frame with title bar and system buttons",
+        "tabs": "horizontal pivot controls with underline",
+        "icons": "segoe-mdl2 or modern weight system icons"
+      },
+      "colors": {
+        "depth": "uses subtle background gradients and shadow layers",
+        "accent": "bright primary with complementary hover states",
+        "surface": "neutral with depth through layering"
+      },
+      "motion": {
+        "preset": "standard",
+        "duration": "400ms for major transitions",
+        "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "inspiration": ["fluent", "awesome-winui", "tabler"],
+      "usage": "Default for Win32/desktop Spaces UI"
+    },
+    "dashboard-modern": {
+      "label": "Dashboard Modern",
+      "description": "Admin dashboard UI with data-dense layouts, metric cards, and responsive grid systems",
+      "targetPlatforms": ["web", "admin-panel", "data-view"],
+      "characteristics": {
+        "cornerRadius": "radius.sm to radius.md",
+        "depth": "card-based with subtle elevation",
+        "density": "compact with data table optimization",
+        "spacing": "constrained grid-based spacing",
+        "typography": "Sans-serif with monospace for metrics"
+      },
+      "componentOverrides": {
+        "button": "compact secondary with icon support",
+        "table": "striped rows with hover states",
+        "card": "metric card with value/label/icon layout",
+        "filter": "tag-based filter controls",
+        "menu": "horizontal filter/action menus"
+      },
+      "colors": {
+        "depth": "card backgrounds with subtle separators",
+        "accent": "bold primary for call-to-action metrics",
+        "surface": "neutral backgrounds for data density"
+      },
+      "motion": {
+        "preset": "quick",
+        "duration": "200ms for interactive feedback",
+        "easing": "cubic-bezier(0.4, 0.0, 0.2, 1.0)"
+      },
+      "inspiration": ["tabler", "tabler-ui", "ant-design", "element-starter"],
+      "usage": "Plugin settings dashboards, analytics views, admin panels"
+    },
+    "flat-minimal": {
+      "label": "Flat Minimal",
+      "description": "Clean, modern interface with minimal ornamentation and generous whitespace",
+      "targetPlatforms": ["web", "cross-platform"],
+      "characteristics": {
+        "cornerRadius": "radius.lg for soft edges",
+        "depth": "minimal or no shadows",
+        "density": "relaxed with breathing room",
+        "spacing": "generous margins and padding",
+        "typography": "Modern sans-serif with high legibility"
+      },
+      "componentOverrides": {
+        "button": "flat primary and ghost with soft hover",
+        "card": "outlined or minimal background card",
+        "input": "ghost input with bottom border only",
+        "menu": "minimal vertical menu with subtle separators",
+        "tabs": "underline tabs with minimal indicator"
+      },
+      "colors": {
+        "depth": "flat surfaces with one accent color",
+        "accent": "single bold color, rest neutral",
+        "surface": "off-white/light backgrounds"
+      },
+      "motion": {
+        "preset": "standard",
+        "duration": "300ms for transitions",
+        "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "inspiration": ["flatui", "shadcn", "bootstrap"],
+      "usage": "Clean, modern plugin interfaces; focus-driven layouts"
+    },
+    "soft-mobile": {
+      "label": "Soft Mobile",
+      "description": "Mobile-first responsive UI with rounded corners, soft interactions, and touch-friendly targets",
+      "targetPlatforms": ["mobile", "responsive-web", "tablet"],
+      "characteristics": {
+        "cornerRadius": "radius.xl with generous rounding",
+        "depth": "soft shadows with subtle elevation",
+        "density": "touch-friendly with 44px+ minimum hit targets",
+        "spacing": "mobile-responsive with dynamic scaling",
+        "typography": "Large readable text with relative sizing"
+      },
+      "componentOverrides": {
+        "button": "soft primary with large padding for touch",
+        "input": "large text input with soft background",
+        "menu": "bottom navigation or side drawer",
+        "card": "large soft cards with shadow",
+        "tabs": "pill-style tab navigation"
+      },
+      "colors": {
+        "depth": "soft color gradients on surfaces",
+        "accent": "warm rounded accent colors",
+        "surface": "soft pastel backgrounds"
+      },
+      "motion": {
+        "preset": "deliberate",
+        "duration": "500ms for natural feel",
+        "easing": "cubic-bezier(0.34, 1.56, 0.64, 1.0)"
+      },
+      "inspiration": ["flutter-ui-kit", "react-native-ui-kitten", "kitten-tricks"],
+      "usage": "Responsive layouts, mobile plugin interfaces, touch-optimized controls"
+    },
+    "cyber-futuristic": {
+      "label": "Cyber Futuristic",
+      "description": "High-contrast, neon-inspired sci-fi aesthetic with glow effects and bold typography",
+      "targetPlatforms": ["gaming", "special-theme", "high-contrast"],
+      "characteristics": {
+        "cornerRadius": "radius.sm with sharp edges",
+        "depth": "neon glow layering with high contrast",
+        "density": "bold and spacious for visual impact",
+        "spacing": "dramatic with high visual separation",
+        "typography": "Monospace or tech-inspired fonts"
+      },
+      "componentOverrides": {
+        "button": "high-contrast button with neon border",
+        "input": "neon border with dark background",
+        "menu": "panel-style menu with glow effect",
+        "card": "neon outline card with dark fill",
+        "accent": "neon colors with glow blur effects"
+      },
+      "colors": {
+        "depth": "dark base with neon accent glows",
+        "accent": "neon cyan, magenta, or lime highlights",
+        "surface": "pure dark with high contrast surfaces"
+      },
+      "motion": {
+        "preset": "quick",
+        "duration": "150ms scan-line style effects",
+        "easing": "linear for tech feel"
+      },
+      "inspiration": ["bevypunk", "discord-cyberpunk", "augmented-ui"],
+      "usage": "Gaming overlays, special theme variants, accessibility-focused high-contrast themes"
+    }
+  },
+  "familyApplicationRules": {
+    "componentSelection": "Each component type can select which families support it. For example, buttons support all families, but table layouts primarily support dashboard-modern.",
+    "fallback": "If a component family doesn't support a requested family, fall back to desktop-fluent as baseline.",
+    "runtime": "Spaces selects one active family per theme at runtime via appearance.ui.component_family setting.",
+    "migration": "Existing components continue to work; families are additive, not destructive."
+  }
+}
